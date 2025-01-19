@@ -3,6 +3,8 @@ import Layout from "../Layout/Layout";
 import Home from "../Pages/Home/Home";
 import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import Membership from "../Pages/Membership/Membership";
 
 
 
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login></Login>
+            },
+            {
+                path: "/dashboard",
+                element: <Dashboard></Dashboard>
+            },
+            {
+                path: "/membership",
+                element: <Membership></Membership>
             }
         ]
     },
