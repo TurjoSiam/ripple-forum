@@ -63,7 +63,7 @@ const Login = () => {
 
 
     return (
-        <div>
+        <div className="my-10">
             <form onSubmit={handleSubmit(onSubmit)} className="lg:w-2/3 mx-8 bg-violet-50 p-16 rounded-3xl border border-violet-200">
                 <h1 className="mx-auto text-center text-[30px] font-bold mb-6">Sign In to Your Account</h1>
                 <div className="relative z-0 w-full mb-5 group">

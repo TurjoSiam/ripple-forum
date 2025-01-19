@@ -1,7 +1,8 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import AuthContext from "../Context/AuthContext";
 import { Slide, toast } from "react-toastify";
+import { IoIosNotifications } from "react-icons/io";
 
 const Navbar = () => {
 
@@ -10,9 +11,9 @@ const Navbar = () => {
     const { user, signOutUser } = useContext(AuthContext);
 
     const links = <>
-        <li><NavLink className="px-0" to="/">Home</NavLink></li>
-        <li><NavLink className="px-0" to="/allservices">Services</NavLink></li>
-        <li><button disabled className="btn">Inbox<div className="badge">99</div></button></li>
+        <li><NavLink className="px-0 mr-5" to="/">Home</NavLink></li>
+        <li><NavLink className="px-0 mr-5" to="/allservices">Services</NavLink></li>
+        <li><button className="btn bg-transparent"><IoIosNotifications /><div className="badge">99</div></button></li>
     </>
 
     const handleSignOut = () => {
@@ -22,7 +23,7 @@ const Navbar = () => {
                     position: 'bottom-right',
                     transition: Slide
                 });
-                navigate("/signin")
+                navigate("/login")
             })
             .catch(error => {
                 console.log('ERROR occured', error.message);
@@ -35,7 +36,7 @@ const Navbar = () => {
 
     return (
         <div className="lg:px-20 sticky top-0 bg-teal-50 z-10">
-            <div className="navbar bg-base-100">
+            <div className="navbar">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -69,14 +70,17 @@ const Navbar = () => {
                     {
                         user ?
                             <>
-                                <details className="dropdown">
-                                    <img src={user?.photoURL} alt="user photo" />
+                                <details className="dropdown dropdown-end">
+                                    <summary className="w-10 h-10 rounded-full btn p-0">
+                                        <img className="w-10 h-10 rounded-full object-cover" src={user?.photoURL} alt="user photo" />
+                                    </summary>
                                     <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                                        <li>{user?.displayName}</li>
-                                        <li><Link to="/dashboard">Dashboard</Link></li>
-                                        <li onClick={handleSignOut}>Logout</li>
+                                        <li className="btn btn-sm pointer-events-none">@{user?.displayName}</li>
+                                        <li><Link className="btn btn-sm" to="/dashboard">Dashboard</Link></li>
+                                        <li className="btn btn-sm" onClick={handleSignOut}>Logout</li>
                                     </ul>
                                 </details>
+
                             </>
                             :
                             <>
