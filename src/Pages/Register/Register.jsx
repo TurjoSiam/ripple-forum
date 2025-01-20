@@ -4,9 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../Context/AuthContext";
 import { Slide, toast } from "react-toastify";
 import { FcGoogle } from "react-icons/fc";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 
 const Register = () => {
+
+    const axiosPublic = useAxiosPublic();
 
     const { createUser, userUpdateWhenSignin, signInWithGoogle, signOutUser } = useContext(AuthContext);
 
@@ -22,16 +25,28 @@ const Register = () => {
                     displayName: data.name,
                     photoURL: data.photo
                 })
-                    .then(result => {
-                        console.log(result);
-                        toast.success('Registration Successful', {
-                            position: 'bottom-right',
-                            transition: Slide
-                        });
-                        signOutUser()
-                            .then(() => {
-                                navigate("/login")
-                            });
+                    .then(() => {
+                        const userInfo = {
+                            name: data.name,
+                            email: data.email,
+                            photo: data.photo,
+                            role: 'bronze'
+                        }
+                        axiosPublic.post("/users", userInfo)
+                            .then((res) => {
+                                if (res.data.insertedId) {
+                                    toast.success('Registration Successful', {
+                                        position: 'bottom-right',
+                                        transition: Slide
+                                    });
+                                    signOutUser()
+                                        .then(() => {
+                                            navigate("/login")
+                                        });
+                                }
+                            })
+
+
                     })
             })
             .catch(error => {
@@ -45,12 +60,25 @@ const Register = () => {
 
     const handleGoogleSignin = () => {
         signInWithGoogle()
-            .then(() => {
-                toast.success('Login Successful', {
-                    position: 'bottom-right',
-                    transition: Slide
-                })
-                navigate("/")
+            .then((res) => {
+                console.log(res);
+                const userInfo = {
+                    name: res.user.displayName,
+                    email: res.user.email,
+                    photo: res.user.photoURL,
+                    role: 'bronze'
+                }
+                axiosPublic.post("/users", userInfo)
+                    .then((res) => {
+                        if (res.data.insertedId) {
+                            console.log(res.data);
+                            toast.success('Login Successful', {
+                                position: 'bottom-right',
+                                transition: Slide
+                            })
+                            navigate("/")
+                        }
+                    })
             })
             .catch(error => {
                 console.log('ERROR', error.message);
@@ -58,10 +86,9 @@ const Register = () => {
                     position: 'bottom-right',
                     transition: Slide
                 })
-                navigate("/signin");
+                navigate("/login");
             })
     }
-
 
     return (
         <div className="lg:my-10">
