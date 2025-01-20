@@ -13,7 +13,7 @@ const Navbar = () => {
     const links = <>
         <li><NavLink className="px-0 mr-5" to="/">Home</NavLink></li>
         <li><NavLink className="px-0 mr-5" to="/allservices">Services</NavLink></li>
-        <li><button className="btn bg-transparent"><IoIosNotifications /><div className="badge">99</div></button></li>
+        <li><button className="btn btn-sm p-0 bg-transparent"><IoIosNotifications /><div className="badge">99</div></button></li>
     </>
 
     const handleSignOut = () => {
