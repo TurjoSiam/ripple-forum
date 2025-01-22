@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import Post from "./Post";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FaSortNumericDownAlt } from "react-icons/fa";
 import { RiResetLeftFill } from "react-icons/ri";
 
@@ -10,11 +10,14 @@ const Posts = () => {
 
     const [search, setSearch] = useState('');
     const [sortBy = '', setSortBy] = useState('');
+    const [clickedTag, setClickedTag] = useState('');
 
+    const inputRef = useRef();
     const handleSubmit = (e) => {
         e.preventDefault();
-        const result = e.target.tag.value;
+        const result = inputRef.current.value;
         setSearch(result);
+        setClickedTag('');
     }
 
     const axiosPublic = useAxiosPublic();
@@ -32,7 +35,7 @@ const Posts = () => {
         </div>
     }
 
-    const tags = ["Technology", "Science", "Travel", "Health", "Education"];
+    const tags = ["Technology", "Food", "Travel", "Health", "Nature"];
 
 
 
@@ -40,7 +43,7 @@ const Posts = () => {
         <div className="relative">
             {/* search bar */}
             <form onSubmit={handleSubmit} className="flex items-center gap-1 absolute -top-20 left-24 border-2 border-orange-400 rounded-xl">
-                <input name="tag" type="text" placeholder="Search by Tag" className="input input-bordered w-full max-w-xs bg-transparent text-orange-200" />
+                <input ref={inputRef} name="tag" defaultValue={clickedTag} type="text" placeholder="Search by Tag" className="input input-bordered w-full max-w-xs bg-transparent text-orange-200" />
                 <input className="btn bg-orange-400" type="submit" value="Search" />
             </form>
             {/* tags */}
@@ -50,7 +53,8 @@ const Posts = () => {
                     {tags.map((tag, index) => (
                         <div
                             key={index}
-                            className="px-4 py-2 bg-blue-100 text-blue-600 rounded-full shadow-sm"
+                            className="px-4 py-2 bg-blue-100 text-blue-600 rounded-full shadow-sm hover:bg-blue-200 cursor-pointer transition"
+                            onClick={() => setClickedTag(tag)}
                         >
                             <span className="text-sm font-medium">{tag}</span>
                         </div>
