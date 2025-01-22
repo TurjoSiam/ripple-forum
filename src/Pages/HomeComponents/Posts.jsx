@@ -2,11 +2,14 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import Post from "./Post";
 import { useState } from "react";
+import { FaSortNumericDownAlt } from "react-icons/fa";
+import { RiResetLeftFill } from "react-icons/ri";
 
 
 const Posts = () => {
 
     const [search, setSearch] = useState('');
+    const [sortBy = '', setSortBy] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,9 +19,9 @@ const Posts = () => {
 
     const axiosPublic = useAxiosPublic();
     const { data = [], isFetching } = useQuery({
-        queryKey: ['posts', search],
+        queryKey: ['posts', search, sortBy],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/posts?search=${search}`);
+            const res = await axiosPublic.get(`/posts?search=${search}&sortBy=${sortBy}`);
             return res.data;
         }
     })
@@ -55,6 +58,10 @@ const Posts = () => {
                 </div>
             </div>
             {/* cards of posts */}
+            <div className="flex items-center justify-end gap-1 w-6/12 mx-auto my-2">
+                <button onClick={() => setSortBy('popularity')} className="btn">Sort By Popularity <FaSortNumericDownAlt /></button>
+                <button onClick={() => setSortBy('')} className="btn">Reset <RiResetLeftFill /></button>
+            </div>
             <div className="w-6/12 mx-auto my-5">
                 {
                     data.map(item => <Post key={item._id} item={item}></Post>)
