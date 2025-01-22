@@ -1,16 +1,17 @@
 import { BiUpvote } from "react-icons/bi";
 import { FaRegComment } from "react-icons/fa";
 import { IoMdTime } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 
 const Post = ({ item }) => {
 
-    const { authorImage, authorName, title, tag, time, upvote, description } = item;
+    const { _id, authorImage, authorName, title, tag, time, upvote, description } = item;
 
 
 
     return (
-        <div className="w-full bg-white shadow-md rounded-lg p-4 flex flex-col sm:flex-row items-start mb-4">
+        <Link to={`/post/${_id}`} className="w-full bg-white shadow-md rounded-lg p-4 flex flex-col sm:flex-row items-start mb-4">
             <img
                 src={authorImage}
                 alt={authorName}
@@ -35,7 +36,7 @@ const Post = ({ item }) => {
                 </div>
 
             </div>
-        </div>
+        </Link>
     );
 };
 
