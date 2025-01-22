@@ -8,12 +8,12 @@ const Navbar = () => {
 
     const navigate = useNavigate();
 
-    const { user, signOutUser } = useContext(AuthContext);
+    const { user, signOutUser, loading } = useContext(AuthContext);
 
     const links = <>
         <li><NavLink className="px-0 mr-5" to="/">Home</NavLink></li>
         <li><NavLink className="px-0 mr-5" to="/allservices">Services</NavLink></li>
-        <li><button className="btn btn-sm p-0 bg-transparent"><IoIosNotifications /><div className="badge">99</div></button></li>
+        <li></li>
     </>
 
     const handleSignOut = () => {
@@ -32,6 +32,12 @@ const Navbar = () => {
                     transition: Slide
                 })
             })
+    }
+
+    if (loading) {
+        return <div className="w-full flex items-center justify-center h-screen">
+            <span className="loading loading-bars loading-lg"></span>
+        </div>
     }
 
     return (
@@ -59,17 +65,19 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">Ripple</a>
-                </div>
-                <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <a className="btn btn-ghost font-bold text-3xl">Ripple</a>
+                    <ul className="menu menu-horizontal ml-10 px-1">
                         {links}
                     </ul>
+                </div>
+                <div className="navbar-center hidden lg:flex">
+                    
                 </div>
                 <div className="navbar-end">
                     {
                         user ?
                             <>
+                                <button className="btn btn-sm p-0 bg-transparent mr-5 flex items-start gap-0"><IoIosNotifications className="text-2xl" /><div className="badge w-4 bg-orange-300 rounded-full">9</div></button>
                                 <details className="dropdown dropdown-end">
                                     <summary className="w-10 h-10 rounded-full btn p-0">
                                         <img className="w-10 h-10 rounded-full object-cover" src={user?.photoURL} alt="user photo" />

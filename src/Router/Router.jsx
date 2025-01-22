@@ -5,6 +5,7 @@ import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import Membership from "../Pages/Membership/Membership";
+import PostDetails from "../Pages/PostDetails/PostDetails";
 
 
 
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
             {
                 path: "/membership",
                 element: <Membership></Membership>
+            },
+            {
+                path: "/post/:id",
+                element: <PostDetails></PostDetails>
             }
         ]
     },

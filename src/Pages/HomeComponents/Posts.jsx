@@ -53,7 +53,7 @@ const Posts = () => {
                     {tags.map((tag, index) => (
                         <div
                             key={index}
-                            className="px-4 py-2 bg-blue-100 text-blue-600 rounded-full shadow-sm hover:bg-blue-200 cursor-pointer transition"
+                            className="px-4 py-2 bg-green-200 text-green-800 rounded-full shadow-sm hover:bg-green-300 cursor-pointer transition"
                             onClick={() => setClickedTag(tag)}
                         >
                             <span className="text-sm font-medium">{tag}</span>
