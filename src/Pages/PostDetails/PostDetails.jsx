@@ -6,6 +6,7 @@ import { MdDownloadDone } from "react-icons/md";
 import { TfiCommentAlt } from "react-icons/tfi";
 import { useLoaderData, useRevalidator } from "react-router-dom";
 import useAxiosPrivate from "../../Hooks/useAxiosPrivate";
+import { FacebookShareButton, FacebookIcon } from "react-share";
 
 
 const PostDetails = () => {
@@ -42,6 +43,8 @@ const PostDetails = () => {
         revalidator.revalidate();
         downButtonRef.current.disabled = true;
     }
+
+    const shareURL = `http://localhost:5173/post/${_id}`
 
 
 
@@ -86,12 +89,12 @@ const PostDetails = () => {
                 <button ref={downButtonRef} onClick={() => handleDownVote(_id)} className="btn px-4 py-2 rounded-md"><BiDownvote />
                     Downvote
                 </button>
-                <button className="btn px-4 py-2 rounded-md"><FaRegShareFromSquare />
-                    Share
-                </button>
                 <button className="btn px-4 py-2 rounded-md"><TfiCommentAlt />
                     Comments
                 </button>
+                <FacebookShareButton url={shareURL}>
+                    <FacebookIcon className="w-11" />
+                </FacebookShareButton>
             </div>
 
             {/* Comment Section */}
