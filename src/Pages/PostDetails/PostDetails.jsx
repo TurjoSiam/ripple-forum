@@ -1,23 +1,41 @@
 import { useState } from "react";
 import { BiDownvote, BiUpvote } from "react-icons/bi";
 import { FaRegClock } from "react-icons/fa";
-import { useLoaderData } from "react-router-dom";
+import { FaRegShareFromSquare } from "react-icons/fa6";
+import { MdDownloadDone } from "react-icons/md";
+import { TfiCommentAlt } from "react-icons/tfi";
+import { useLoaderData, useRevalidator } from "react-router-dom";
+import useAxiosPrivate from "../../Hooks/useAxiosPrivate";
 
 
 const PostDetails = () => {
 
     const [comment, setComment] = useState("");
 
+    const revalidator = useRevalidator();
+
     const handleCommentSubmit = (e) => {
-      e.preventDefault();
-      // Handle the comment submission logic here
-      console.log("Comment submitted:", comment);
-      setComment("");
+        e.preventDefault();
+        // Handle the comment submission logic here
+        console.log("Comment submitted:", comment);
+        setComment("");
     };
 
+    const { _id, authorImage, authorName, title, tag, time, upvote, downvote, description } = useLoaderData();
+
+    const axiosPrivate = useAxiosPrivate();
+
+    const handleUpVote = async (id) => {
+        const result = await axiosPrivate.patch(`/upvote/${id}`);
+        console.log(result);
+        revalidator.revalidate();
+    }
 
 
-    const {_id, authorImage, authorName, title, tag, time, upvote, downvote, description} = useLoaderData();
+
+
+
+
 
 
     return (
@@ -50,16 +68,16 @@ const PostDetails = () => {
 
             {/* Buttons */}
             <div className="flex items-center gap-4 mb-4">
-                <button className="btn btn-primary bg-blue-500 text-white px-4 py-2 rounded-md">
+                <button onClick={() => handleUpVote(_id)} className="btn px-4 py-2 rounded-md"><BiUpvote />
                     Upvote
                 </button>
-                <button className="btn btn-primary bg-red-500 text-white px-4 py-2 rounded-md">
+                <button onClick={() => handleDownVote(_id)} className="btn px-4 py-2 rounded-md"><BiDownvote />
                     Downvote
                 </button>
-                <button className="btn btn-primary bg-gray-700 text-white px-4 py-2 rounded-md">
+                <button className="btn px-4 py-2 rounded-md"><FaRegShareFromSquare />
                     Share
                 </button>
-                <button className="btn btn-primary bg-yellow-500 text-white px-4 py-2 rounded-md">
+                <button className="btn px-4 py-2 rounded-md"><TfiCommentAlt />
                     Comments
                 </button>
             </div>
@@ -75,8 +93,7 @@ const PostDetails = () => {
                 ></textarea>
                 <button
                     type="submit"
-                    className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600"
-                >
+                    className="btn px-6 py-2"><MdDownloadDone />
                     Comment
                 </button>
             </form>
