@@ -31,6 +31,12 @@ const PostDetails = () => {
         revalidator.revalidate();
     }
 
+    const handleDownVote = async (id) => {
+        const result = await axiosPrivate.patch(`/downvote/${id}`);
+        console.log(result);
+        revalidator.revalidate();
+    }
+
 
 
 
