@@ -13,7 +13,11 @@ const Navbar = () => {
     const links = <>
         <li><NavLink className="px-0 mr-5" to="/">Home</NavLink></li>
         <li><NavLink className="px-0 mr-5" to="/allservices">Services</NavLink></li>
-        <li></li>
+        {
+            user && <>
+                <li><NavLink className="px-0 mr-5" to="/membership">Membership</NavLink></li>
+            </>
+        }
     </>
 
     const handleSignOut = () => {
@@ -71,7 +75,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    
+
                 </div>
                 <div className="navbar-end">
                     {
