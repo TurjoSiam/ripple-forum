@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { BiDownvote, BiUpvote } from "react-icons/bi";
 import { FaRegClock } from "react-icons/fa";
 import { FaRegShareFromSquare } from "react-icons/fa6";
@@ -25,16 +25,22 @@ const PostDetails = () => {
 
     const axiosPrivate = useAxiosPrivate();
 
+    const upButtonRef = useRef(null);
+    const downButtonRef = useRef(null);
+
     const handleUpVote = async (id) => {
         const result = await axiosPrivate.patch(`/upvote/${id}`);
         console.log(result);
         revalidator.revalidate();
+        upButtonRef.current.disabled = true;
     }
 
     const handleDownVote = async (id) => {
         const result = await axiosPrivate.patch(`/downvote/${id}`);
         console.log(result);
         revalidator.revalidate();
+        revalidator.revalidate();
+        downButtonRef.current.disabled = true;
     }
 
 
@@ -74,10 +80,10 @@ const PostDetails = () => {
 
             {/* Buttons */}
             <div className="flex items-center gap-4 mb-4">
-                <button onClick={() => handleUpVote(_id)} className="btn px-4 py-2 rounded-md"><BiUpvote />
+                <button ref={upButtonRef} onClick={() => handleUpVote(_id)} className="btn px-4 py-2 rounded-md"><BiUpvote />
                     Upvote
                 </button>
-                <button onClick={() => handleDownVote(_id)} className="btn px-4 py-2 rounded-md"><BiDownvote />
+                <button ref={downButtonRef} onClick={() => handleDownVote(_id)} className="btn px-4 py-2 rounded-md"><BiDownvote />
                     Downvote
                 </button>
                 <button className="btn px-4 py-2 rounded-md"><FaRegShareFromSquare />
