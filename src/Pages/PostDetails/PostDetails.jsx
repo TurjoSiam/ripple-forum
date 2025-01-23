@@ -7,22 +7,17 @@ import { Link, useLoaderData, useRevalidator } from "react-router-dom";
 import useAxiosPrivate from "../../Hooks/useAxiosPrivate";
 import { FacebookShareButton, FacebookIcon } from "react-share";
 import AuthContext from "../../Context/AuthContext";
+import { useForm } from "react-hook-form";
+import { Slide, toast } from "react-toastify";
 
 
 const PostDetails = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user} = useContext(AuthContext);
 
     const [comment, setComment] = useState("");
 
     const revalidator = useRevalidator();
-
-    const handleCommentSubmit = (e) => {
-        e.preventDefault();
-        // Handle the comment submission logic here
-        console.log("Comment submitted:", comment);
-        setComment("");
-    };
 
     const { _id, authorImage, authorName, title, tag, time, upvote, downvote, description } = useLoaderData();
 
@@ -48,7 +43,23 @@ const PostDetails = () => {
 
     const shareURL = `http://localhost:5173/post/${_id}`
 
+    const {register, handleSubmit, reset} = useForm();
 
+    const onSubmit = async (data) => {
+        const commentData = {
+            postId: _id,
+            comment: data.comment,
+            email: user.email,
+            photo: user.photoURL
+        };
+        const result = await axiosPrivate.post("/comments", commentData)
+        console.log(result);
+        reset();
+        toast.success('Comment posted', {
+            position: 'bottom-right',
+            transition: Slide
+        })
+    }
 
 
 
@@ -99,8 +110,9 @@ const PostDetails = () => {
                             </FacebookShareButton>
                         </div>
                         {/* Comment Section */}
-                        <form onSubmit={handleCommentSubmit} className="mt-4">
+                        <form onSubmit={handleSubmit(onSubmit)} className="mt-4">
                             <textarea
+                                {...register('comment')}
                                 className="w-full border border-gray-300 rounded-lg p-4 mb-2 focus:outline-none focus:ring focus:ring-blue-500"
                                 rows="3"
                                 placeholder="Write a comment..."
