@@ -1,6 +1,59 @@
+import { useContext } from "react";
 import gold from "../../assets/gold.png"
+import AuthContext from "../../Context/AuthContext";
+import useAxiosPrivate from "../../Hooks/useAxiosPrivate";
+import Swal from "sweetalert2";
+
 
 const Membership = () => {
+
+    const { user } = useContext(AuthContext);
+
+    const axiosPrivate = useAxiosPrivate();
+
+    const handlePurchase = (email) => {
+        Swal.fire({
+            title: "Are you sure want to purchase?",
+            showClass: {
+                popup: `
+                  animate__animated
+                  animate__fadeInUp
+                  animate__faster
+                `
+            },
+            hideClass: {
+                popup: `
+                  animate__animated
+                  animate__fadeOutDown
+                  animate__faster
+                `
+            },
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Purchase!"
+        }).then((result) => {
+            const purchase = {
+                role: 'gold'
+            }
+            if (result.isConfirmed) {
+                axiosPrivate.patch(`/users/${email}`, purchase)
+                .then(res => {
+                    console.log(res.data);
+                    Swal.fire({
+                        title: "Purchased!",
+                        text: "You are now a Gold member.",
+                        icon: "success"
+                    });
+                })
+            }
+        });
+    }
+
+
+
     return (
         <div className="w-6/12 mx-auto bg-green-50 p-10 my-20 rounded-lg shadow-md">
             <h2 className="text-2xl font-bold mb-4">Go Premium!</h2>
@@ -13,10 +66,7 @@ const Membership = () => {
             </ul>
             <button
                 className="btn py-2 px-4"
-                onClick={() => {
-                    // Handle purchase logic here (e.g., redirect to payment gateway)
-                    console.log('Purchase button clicked');
-                }}
+                onClick={() => handlePurchase(user?.email)}
             >
                 Purchase Now
             </button>
