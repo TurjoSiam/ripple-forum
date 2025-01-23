@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Post = ({ item }) => {
 
-    const { _id, authorImage, authorName, title, tag, time, upvote, description } = item;
+    const { _id, authorImage, authorName, voteDifference, title, tag, time, description } = item;
 
 
 
@@ -31,7 +31,7 @@ const Post = ({ item }) => {
                             <span className="flex items-center gap-1"><FaRegComment />20</span>
                         </div>
                         <div className="flex items-center text-gray-600">
-                            <span className="flex items-center gap-1"><BiUpvote />{upvote}</span>
+                            <span className="flex items-center gap-1"><BiUpvote />{voteDifference}</span>
                         </div>
                     </div>
                 </div>

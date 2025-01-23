@@ -9,7 +9,7 @@ import { RiResetLeftFill } from "react-icons/ri";
 const Posts = () => {
 
     const [search, setSearch] = useState('');
-    const [sortBy = '', setSortBy] = useState('');
+    const [sortBy, setSortBy] = useState('');
     const [clickedTag, setClickedTag] = useState('');
 
     const inputRef = useRef();
@@ -21,7 +21,7 @@ const Posts = () => {
     }
 
     const axiosPublic = useAxiosPublic();
-    const { data = [], isFetching } = useQuery({
+    const { data, isFetching } = useQuery({
         queryKey: ['posts', search, sortBy],
         queryFn: async () => {
             const res = await axiosPublic.get(`/posts?search=${search}&sortBy=${sortBy}`);

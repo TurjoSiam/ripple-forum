@@ -1,15 +1,17 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { BiDownvote, BiUpvote } from "react-icons/bi";
 import { FaRegClock } from "react-icons/fa";
 import { FaRegShareFromSquare } from "react-icons/fa6";
 import { MdDownloadDone } from "react-icons/md";
-import { TfiCommentAlt } from "react-icons/tfi";
-import { useLoaderData, useRevalidator } from "react-router-dom";
+import { Link, useLoaderData, useRevalidator } from "react-router-dom";
 import useAxiosPrivate from "../../Hooks/useAxiosPrivate";
 import { FacebookShareButton, FacebookIcon } from "react-share";
+import AuthContext from "../../Context/AuthContext";
 
 
 const PostDetails = () => {
+
+    const { user } = useContext(AuthContext);
 
     const [comment, setComment] = useState("");
 
@@ -74,7 +76,7 @@ const PostDetails = () => {
             {/* Post Description */}
             <p className="text-gray-700 mb-4">{description}</p>
 
-            {/* Tag */}
+            {/* Tag and vote count */}
             <div className="flex items-center gap-5 mb-4 text-gray-700 font-bold text-sm">
                 <span>#{tag}</span>
                 <span className="flex items-center gap-1"><BiUpvote /> {upvote}</span>
@@ -82,36 +84,45 @@ const PostDetails = () => {
             </div>
 
             {/* Buttons */}
-            <div className="flex items-center gap-4 mb-4">
-                <button ref={upButtonRef} onClick={() => handleUpVote(_id)} className="btn px-4 py-2 rounded-md"><BiUpvote />
-                    Upvote
-                </button>
-                <button ref={downButtonRef} onClick={() => handleDownVote(_id)} className="btn px-4 py-2 rounded-md"><BiDownvote />
-                    Downvote
-                </button>
-                <button className="btn px-4 py-2 rounded-md"><TfiCommentAlt />
-                    Comments
-                </button>
-                <FacebookShareButton url={shareURL}>
-                    <FacebookIcon className="w-11" />
-                </FacebookShareButton>
-            </div>
+            {
+                user ?
+                    <>
+                        <div className="flex items-center gap-4 mb-4">
+                            <button ref={upButtonRef} onClick={() => handleUpVote(_id)} className="btn px-4 py-2 rounded-md"><BiUpvote />
+                                Upvote
+                            </button>
+                            <button ref={downButtonRef} onClick={() => handleDownVote(_id)} className="btn px-4 py-2 rounded-md"><BiDownvote />
+                                Downvote
+                            </button>
+                            <FacebookShareButton url={shareURL}>
+                                <FacebookIcon className="w-11 h-11 rounded-full" />
+                            </FacebookShareButton>
+                        </div>
+                        {/* Comment Section */}
+                        <form onSubmit={handleCommentSubmit} className="mt-4">
+                            <textarea
+                                className="w-full border border-gray-300 rounded-lg p-4 mb-2 focus:outline-none focus:ring focus:ring-blue-500"
+                                rows="3"
+                                placeholder="Write a comment..."
+                                value={comment}
+                                onChange={(e) => setComment(e.target.value)}
+                            ></textarea>
+                            <button
+                                type="submit"
+                                className="btn px-6 py-2"><MdDownloadDone />
+                                Comment
+                            </button>
+                        </form>
+                    </>
+                    :
+                    <>
+                        <div className="p-3 border bg-orange-100 mt-10">
+                            <h2 className="text-xl text-center">Please <Link to="/login" className="underline text-blue-600">Login</Link> to comment, share and vote!</h2>
+                        </div>
+                    </>
+            }
 
-            {/* Comment Section */}
-            <form onSubmit={handleCommentSubmit} className="mt-4">
-                <textarea
-                    className="w-full border border-gray-300 rounded-lg p-4 mb-2 focus:outline-none focus:ring focus:ring-blue-500"
-                    rows="3"
-                    placeholder="Write a comment..."
-                    value={comment}
-                    onChange={(e) => setComment(e.target.value)}
-                ></textarea>
-                <button
-                    type="submit"
-                    className="btn px-6 py-2"><MdDownloadDone />
-                    Comment
-                </button>
-            </form>
+
         </div>
     );
 };

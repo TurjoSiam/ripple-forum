@@ -6,6 +6,7 @@ import Login from "../Pages/Login/Login";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import Membership from "../Pages/Membership/Membership";
 import PostDetails from "../Pages/PostDetails/PostDetails";
+import Comments from "../Pages/Comments/Comments";
 
 
 
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
                 path: "/post/:id",
                 element: <PostDetails></PostDetails>,
                 loader: ({params}) => fetch(`http://localhost:5000/post/${params.id}`)
+            },
+            {
+                path: "/comments/:id",
+                element: <Comments></Comments>
             }
         ]
     },
