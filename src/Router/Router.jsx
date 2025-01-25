@@ -10,6 +10,9 @@ import Comments from "../Pages/Comments/Comments";
 import MyProfile from "../Pages/Dashboard/Outlets/MyProfile";
 import AddPost from "../Pages/Dashboard/Outlets/AddPost";
 import MyPosts from "../Pages/Dashboard/Outlets/MyPosts";
+import ManageUsers from "../Pages/Dashboard/Outlets/ManageUsers";
+import Report from "../Pages/Dashboard/Outlets/Report";
+import Announcement from "../Pages/Dashboard/Outlets/Announcement";
 
 
 
@@ -45,6 +48,18 @@ const router = createBrowserRouter([
                     {
                         path: "/dashboard/myposts",
                         element: <MyPosts></MyPosts>
+                    },
+                    {
+                        path: "/dashboard/manageusers",
+                        element: <ManageUsers></ManageUsers>
+                    },
+                    {
+                        path: "/dashboard/report",
+                        element: <Report></Report>
+                    },
+                    {
+                        path: "/dashboard/announcement",
+                        element: <Announcement></Announcement>
                     }
                 ]
             },
