@@ -69,7 +69,7 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost font-bold text-3xl">Ripple</a>
+                    <Link to="/" className="btn btn-ghost font-bold text-3xl">Ripple</Link>
                     <ul className="menu menu-horizontal ml-10 px-1">
                         {links}
                     </ul>

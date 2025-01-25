@@ -31,7 +31,6 @@ const MyProfile = () => {
             return res.data;
         }
     })
-    console.log(post);
 
 
     if (isFetching) {
