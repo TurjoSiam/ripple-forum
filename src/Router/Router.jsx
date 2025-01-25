@@ -7,6 +7,9 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import Membership from "../Pages/Membership/Membership";
 import PostDetails from "../Pages/PostDetails/PostDetails";
 import Comments from "../Pages/Comments/Comments";
+import MyProfile from "../Pages/Dashboard/Outlets/MyProfile";
+import AddPost from "../Pages/Dashboard/Outlets/AddPost";
+import MyPosts from "../Pages/Dashboard/Outlets/MyPosts";
 
 
 
@@ -29,7 +32,21 @@ const router = createBrowserRouter([
             },
             {
                 path: "/dashboard",
-                element: <Dashboard></Dashboard>
+                element: <Dashboard></Dashboard>,
+                children: [
+                    {
+                        path: "/dashboard/myprofile",
+                        element: <MyProfile></MyProfile>
+                    },
+                    {
+                        path: "/dashboard/addpost",
+                        element: <AddPost></AddPost>
+                    },
+                    {
+                        path: "/dashboard/myposts",
+                        element: <MyPosts></MyPosts>
+                    }
+                ]
             },
             {
                 path: "/membership",
