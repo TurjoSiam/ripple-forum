@@ -1,8 +1,25 @@
 import { NavLink } from "react-router-dom";
+import useAxiosPrivate from "../../../Hooks/useAxiosPrivate";
+import { useQuery } from "@tanstack/react-query";
+import { useContext } from "react";
+import AuthContext from "../../../Context/AuthContext";
 
 
 const Sidebar = () => {
-    
+
+    const { user } = useContext(AuthContext);
+
+    const axiosPrivate = useAxiosPrivate();
+    const { data } = useQuery({
+        queryKey: ['user'],
+        queryFn: async () => {
+            const res = await axiosPrivate.get(`/users/${user?.email}`);
+            return res.data;
+        }
+    })
+    console.log(data);
+
+
 
     return (
         <div className="col-span-3 border min-h-screen bg-teal-50 border-green-500">
@@ -10,9 +27,16 @@ const Sidebar = () => {
             <NavLink to="/dashboard/addpost" className="btn w-full bg-transparent">Add Post</NavLink>
             <NavLink to="/dashboard/myposts" className="btn w-full bg-transparent">My Posts</NavLink>
 
-            <NavLink to="/dashboard/manageusers" className="btn w-full bg-transparent">Manage Users</NavLink>
-            <NavLink to="/dashboard/report" className="btn w-full bg-transparent">Reported Comments/Activities</NavLink>
-            <NavLink to="/dashboard/announcement" className="btn w-full bg-transparent">Make Announcement</NavLink>
+            {
+                data?.role === "admin" ?
+                    <>
+                        <NavLink to="/dashboard/manageusers" className="btn w-full bg-transparent">Manage Users</NavLink>
+                        <NavLink to="/dashboard/report" className="btn w-full bg-transparent">Reported Comments/Activities</NavLink>
+                        <NavLink to="/dashboard/announcement" className="btn w-full bg-transparent">Make Announcement</NavLink>
+                    </>
+                    :
+                    <></>
+            }
         </div>
     );
 };

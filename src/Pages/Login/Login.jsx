@@ -21,11 +21,6 @@ const Login = () => {
         signInUser(data.email, data.password)
             .then(result => {
                 console.log(result);
-                // const user = {email: data.email};
-                // axios.post('https://assignment-11-beta.vercel.app/jwt', user, {withCredentials: true})
-                // .then(res => {
-                //     console.log(res.data);
-                // })
                 toast.success('Login Successful', {
                     position: 'bottom-right',
                     transition: Slide
