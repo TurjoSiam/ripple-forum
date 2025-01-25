@@ -10,15 +10,19 @@ const Sidebar = () => {
     const { user } = useContext(AuthContext);
 
     const axiosPrivate = useAxiosPrivate();
-    const { data } = useQuery({
-        queryKey: ['user'],
+    const { data, isFetching } = useQuery({
+        queryKey: ['user', user?.email],
         queryFn: async () => {
             const res = await axiosPrivate.get(`/users/${user?.email}`);
             return res.data;
         }
     })
-    console.log(data);
 
+    if (isFetching) {
+        return <div className="col-span-3 w-full flex items-center justify-center h-screen">
+            <span className="loading loading-bars loading-lg"></span>
+        </div>
+    }
 
 
     return (
