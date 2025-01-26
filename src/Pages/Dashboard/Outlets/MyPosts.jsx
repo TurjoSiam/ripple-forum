@@ -3,6 +3,7 @@ import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { useContext } from "react";
 import AuthContext from "../../../Context/AuthContext";
 import { BiDownvote, BiUpvote } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 
 const MyPosts = () => {
@@ -35,7 +36,7 @@ const MyPosts = () => {
                             <th></th>
                             <th>Post Title</th>
                             <th>Number of Votes</th>
-                            <th>Action</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,7 +49,7 @@ const MyPosts = () => {
                                     <span className="flex items-center gap-1"><BiDownvote /> {post?.downvote}</span>
                                 </td>
                                 <td>
-                                    <button className="btn mr-2 bg-blue-300 hover:bg-blue-400">Comments</button>
+                                    <Link to={`/comments/${post?._id}`} className="btn mr-2 bg-blue-300 hover:bg-blue-400">Comments</Link>
                                     <button className="btn bg-red-300 hover:bg-red-400">Delete</button>
                                 </td>
                             </tr>)

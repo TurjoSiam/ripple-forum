@@ -1,7 +1,6 @@
 import { useContext, useRef, useState } from "react";
 import { BiDownvote, BiUpvote } from "react-icons/bi";
 import { FaRegClock } from "react-icons/fa";
-import { FaRegShareFromSquare } from "react-icons/fa6";
 import { MdDownloadDone } from "react-icons/md";
 import { Link, useLoaderData, useRevalidator } from "react-router-dom";
 import useAxiosPrivate from "../../Hooks/useAxiosPrivate";

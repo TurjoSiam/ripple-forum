@@ -13,6 +13,7 @@ import MyPosts from "../Pages/Dashboard/Outlets/MyPosts";
 import ManageUsers from "../Pages/Dashboard/Outlets/ManageUsers";
 import Report from "../Pages/Dashboard/Outlets/Report";
 import Announcement from "../Pages/Dashboard/Outlets/Announcement";
+import AdminProfile from "../Pages/Dashboard/Outlets/AdminProfile";
 
 
 
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
                     {
                         path: "/dashboard/myprofile",
                         element: <MyProfile></MyProfile>
+                    },
+                    {
+                        path: "/dashboard/adminprofile",
+                        element: <AdminProfile></AdminProfile>
                     },
                     {
                         path: "/dashboard/addpost",
@@ -73,8 +78,9 @@ const router = createBrowserRouter([
                 loader: ({params}) => fetch(`http://localhost:5000/post/${params.id}`)
             },
             {
-                path: "/comments/:id",
-                element: <Comments></Comments>
+                path: "/comments/:postId",
+                element: <Comments></Comments>,
+                loader: ({params}) => fetch(`http://localhost:5000/comments/${params.postId}`)
             }
         ]
     },
