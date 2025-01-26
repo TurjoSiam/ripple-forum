@@ -41,7 +41,6 @@ const Membership = () => {
             if (result.isConfirmed) {
                 axiosPrivate.patch(`/users/${email}`, purchase)
                 .then(res => {
-                    console.log(res.data);
                     Swal.fire({
                         title: "Purchased!",
                         text: "You are now a Gold member.",
