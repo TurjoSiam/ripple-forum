@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import AuthContext from "../../../Context/AuthContext";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 const AddPost = () => {
@@ -58,7 +59,10 @@ const AddPost = () => {
 
     return (
         author?.role === 'bronze' && post?.length > 4 ?
-            <div className="col-span-9 w-5/6 mx-auto h-fit my-10 p-5 bg-orange-100 shadow-md shadow-orange-200 rounded-xl"><h2 className="text-2xl text-center">You've reached your post limit. Please buy premium membership</h2></div>
+            <div className="col-span-9 w-5/6 mx-auto h-fit my-10 p-5 bg-orange-100 shadow-md shadow-orange-200 rounded-xl flex flex-col items-center gap-5">
+                <h2 className="text-2xl text-center">You've reached your post limit. Please buy premium membership.</h2>
+                <Link to="/membership" className="btn">Become a Member</Link>
+            </div>
             :
             <div className="lg:my-10 col-span-9 w-5/6 mx-auto">
                 <form onSubmit={handleSubmit(onSubmit)} className="mx-8 bg-orange-50 p-16 rounded-3xl border border-cyan-200">
