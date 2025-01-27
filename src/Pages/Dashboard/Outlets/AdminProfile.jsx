@@ -20,29 +20,27 @@ const AdminProfile = () => {
         }
     })
 
-    const axiosPublicUser = useAxiosPublic()
     const { data: users } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await axiosPublicUser.get('/users');
+            const res = await axiosPrivate.get('/users');
             return res.data;
         }
     })
 
-    const axiosPublicPosts = useAxiosPublic()
+    const axiosPublic = useAxiosPublic()
     const { data: posts } = useQuery({
         queryKey: ['posts'],
         queryFn: async () => {
-            const res = await axiosPublicPosts.get('/allposts');
+            const res = await axiosPublic.get('/allposts');
             return res.data;
         }
     })
 
-    const axiosPublicComments = useAxiosPublic()
     const { data: comments } = useQuery({
         queryKey: ['comments'],
         queryFn: async () => {
-            const res = await axiosPublicComments.get('/comments');
+            const res = await axiosPublic.get('/comments');
             return res.data;
         }
     })

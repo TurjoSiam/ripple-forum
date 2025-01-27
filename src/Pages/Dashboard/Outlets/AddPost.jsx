@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import useAxiosPrivate from "../../../Hooks/useAxiosPrivate";
 import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import AuthContext from "../../../Context/AuthContext";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 
 const AddPost = () => {
@@ -27,7 +28,7 @@ const AddPost = () => {
     const { data: post, isFetching } = useQuery({
         queryKey: ['post'],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/posts/email/${user?.email}`);
+            const res = await axiosPrivate.get(`/posts/email/${user?.email}`);
             return res.data;
         }
     })
@@ -35,14 +36,14 @@ const AddPost = () => {
     const { data: author } = useQuery({
         queryKey: ['author'],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/users/${user?.email}`);
+            const res = await axiosPrivate.get(`/users/${user?.email}`);
             return res.data;
         }
     })
 
 
     const onSubmit = async (data) => {
-        const res = await axiosPublic.post('/posts', data)
+        const res = await axiosPrivate.post('/posts', data)
         if (res.data.insertedId) {
             Swal.fire("Post Added Successfully!");
         }

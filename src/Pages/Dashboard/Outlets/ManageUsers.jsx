@@ -17,16 +17,15 @@ const ManageUsers = () => {
         setSearch(result);
     }
 
-    const axiosPublicUser = useAxiosPublic()
+    const axiosPrivate = useAxiosPrivate()
     const { data: users, isFetching, refetch } = useQuery({
         queryKey: ['users', search],
         queryFn: async () => {
-            const res = await axiosPublicUser.get(`/users?search=${search}`);
+            const res = await axiosPrivate.get(`/users?search=${search}`);
             return res.data;
         }
     })
 
-    const axiosPrivate = useAxiosPrivate();
     const handleAdmin = (id) => {
         Swal.fire({
             title: "Are you sure want to make Admin?",

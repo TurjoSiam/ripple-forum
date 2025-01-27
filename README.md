@@ -40,5 +40,8 @@ A social media forum where users can post, read and share thoughts
 - `animate CSS`
 - `react select`
 - `react share`
+- `react lottie`
+- `axios`
+- `tanstack query`
 
 ## Live Site URL
