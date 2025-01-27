@@ -84,7 +84,7 @@ const ManageUsers = () => {
 
     return (
         <div className="col-span-9 text-center">
-            <div className="w-5/6 mx-auto my-10 bg-orange-50 rounded-2xl border border-orange-300 p-7">
+            <div className="w-11/12 md:w-5/6 mx-auto my-10 bg-orange-50 rounded-2xl border border-orange-300 p-7">
                 <form onSubmit={handleSubmit} className="flex items-center gap-1 mb-5 rounded-xl">
                     <input ref={inputRef} name="search" type="text" placeholder="Search by Username" className="input input-bordered w-full max-w-xs" />
                     <input className="btn bg-orange-400" type="submit" value="Search" />

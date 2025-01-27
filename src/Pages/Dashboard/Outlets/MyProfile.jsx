@@ -68,16 +68,18 @@ const MyProfile = () => {
             {
                 post.map(item =>
                     <div key={item._id} className="flex-1 bg-orange-50 p-7 rounded-xl shadow-md shadow-orange-200
-                     my-5 w-4/6 mx-auto">
+                     my-5 w-11/12 md:w-4/6 mx-auto">
                         <h3 className="text-lg font-semibold text-gray-800">{item?.title}</h3>
                         <p className="text-sm text-gray-500 mb-3">@{item?.authorName}</p>
                         <p className="text-gray-700 text-sm mb-3">{item?.description}</p>
-                        <div className="text-sm text-gray-600 mt-1 flex items-center">
-                            <span className="bg-orange-200 text-gray-700 rounded-full px-3 py-1 text-xs font-medium mr-2">
-                                {item?.tag}
-                            </span>
-                            <span className="flex items-center gap-1"><IoMdTime />{item?.time}</span>
-                            <div className="flex flex-col sm:flex-row sm:items-center mt-4 sm:mt-0 sm:ml-auto">
+                        <div className="text-sm text-gray-600 flex items-center justify-between mt-4">
+                            <div className="flex items-center">
+                                <span className="bg-orange-200 text-gray-700 rounded-full px-3 py-1 text-xs font-medium mr-2">
+                                    {item?.tag}
+                                </span>
+                                <span className="flex items-center gap-1"><IoMdTime />{item?.time}</span>
+                            </div>
+                            <div className="flex items-center sm:mt-0 sm:ml-auto">
                                 <div className="flex items-center mr-4 text-gray-600">
                                     <span className="flex items-center gap-1"><FaRegComment />20</span>
                                 </div>

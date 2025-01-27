@@ -5,11 +5,11 @@ import { IoMdTime } from "react-icons/io";
 
 const ShowAnnouncement = () => {
 
-    const axiosPublicPost = useAxiosPublic();
+    const axiosPublicAnnouncement = useAxiosPublic();
     const { data: announcements, isFetching } = useQuery({
         queryKey: ['announcements'],
         queryFn: async () => {
-            const res = await axiosPublicPost.get("/announcements");
+            const res = await axiosPublicAnnouncement.get("/announcements");
             return res.data;
         }
     })
@@ -25,7 +25,7 @@ const ShowAnnouncement = () => {
         announcements?.length > 0 ?
             <>
                 {
-                    announcements.map(announcement => <div key={announcement?._id} className="bg-gradient-to-tr from-orange-100 to-green-100 max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-6 my-6 border border-gray-200">
+                    announcements.map(announcement => <div id="announcement" key={announcement?._id} className="bg-gradient-to-tr from-orange-100 to-green-100 max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-6 my-6 border border-gray-200">
                         <div className="flex items-center justify-between mb-4">
                             <h2 className="text-2xl font-semibold text-gray-800">{announcement?.title}</h2>
                             <span className="text-sm text-gray-500 flex items-center gap-1"><IoMdTime />{announcement?.time}</span>

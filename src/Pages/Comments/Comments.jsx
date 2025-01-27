@@ -17,7 +17,7 @@ const Comments = () => {
 
 
     return (
-        <div className="w-9/12 mx-auto my-10 bg-orange-50 rounded-2xl border border-orange-300 p-7">
+        <div className="w-11/12 md:w-9/12 mx-auto my-10 bg-orange-50 rounded-2xl border border-orange-300 p-7">
             <div className="overflow-x-auto">
                 <table className="table text-center">
                     {/* head */}

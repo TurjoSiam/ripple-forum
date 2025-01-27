@@ -3,6 +3,8 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import AuthContext from "../Context/AuthContext";
 import { Slide, toast } from "react-toastify";
 import { IoIosNotifications } from "react-icons/io";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 
 const Navbar = () => {
 
@@ -12,7 +14,6 @@ const Navbar = () => {
 
     const links = <>
         <li><NavLink className="px-0 mr-5" to="/">Home</NavLink></li>
-        <li><NavLink className="px-0 mr-5" to="/allservices">Services</NavLink></li>
         {
             user && <>
                 <li><NavLink className="px-0 mr-5" to="/membership">Membership</NavLink></li>
@@ -37,6 +38,18 @@ const Navbar = () => {
                 })
             })
     }
+
+    const axiosPublicAnnouncement = useAxiosPublic();
+    const { data: announcements } = useQuery({
+        queryKey: ['announcements'],
+        queryFn: async () => {
+            const res = await axiosPublicAnnouncement.get("/announcements");
+            return res.data;
+        }
+    })
+
+
+
 
     if (loading) {
         return <div className="w-full flex items-center justify-center h-screen">
@@ -70,9 +83,11 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link to="/" className="btn btn-ghost font-bold text-3xl">Ripple</Link>
-                    <ul className="menu menu-horizontal ml-10 px-1">
-                        {links}
-                    </ul>
+                    <div className="hidden md:flex">
+                        <ul className="menu menu-horizontal ml-10 px-1">
+                            {links}
+                        </ul>
+                    </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
 
@@ -81,7 +96,7 @@ const Navbar = () => {
                     {
                         user ?
                             <>
-                                <button className="btn btn-sm p-0 bg-transparent mr-5 flex items-start gap-0"><IoIosNotifications className="text-2xl" /><div className="badge w-4 bg-orange-300 rounded-full">9</div></button>
+                                <a href="#announcement" className="btn btn-sm p-0 bg-transparent hover:bg-green-100 mr-5 flex items-start gap-0"><IoIosNotifications className="text-2xl" /><div className="badge w-4 bg-orange-300 rounded-full">{announcements?.length}</div></a>
                                 <details className="dropdown dropdown-end">
                                     <summary className="w-10 h-10 rounded-full btn p-0">
                                         <img className="w-10 h-10 rounded-full object-cover" src={user?.photoURL} alt="user photo" />

@@ -30,9 +30,9 @@ const Sidebar = () => {
             <>
                 <div className="col-span-3 border min-h-screen bg-teal-50 border-green-500">
                     <NavLink to="/dashboard/adminprofile" className="btn w-full bg-transparent">Admin Profile</NavLink>
-                    <NavLink to="/dashboard/manageusers" className="btn w-full bg-transparent">Manage Users</NavLink>
-                    <NavLink to="/dashboard/report" className="btn w-full bg-transparent">Reported Comments/Activities</NavLink>
+                    <NavLink to="/dashboard/manageusers" className="btn w-full bg-transparent">Manage Users</NavLink>    
                     <NavLink to="/dashboard/announcement" className="btn w-full bg-transparent">Make Announcement</NavLink>
+                    <NavLink to="/dashboard/report" className="btn w-full bg-transparent">Reported Comments/ Activities</NavLink>
                 </div>
             </>
             :

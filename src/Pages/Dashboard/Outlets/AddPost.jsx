@@ -24,20 +24,18 @@ const AddPost = () => {
         }
     })
 
-    const axiosPublicPost = useAxiosPublic();
     const { data: post, isFetching } = useQuery({
         queryKey: ['post'],
         queryFn: async () => {
-            const res = await axiosPublicPost.get(`/posts/email/${user?.email}`);
+            const res = await axiosPublic.get(`/posts/email/${user?.email}`);
             return res.data;
         }
     })
 
-    const axiosPublicUser = useAxiosPublic();
     const { data: author } = useQuery({
         queryKey: ['author'],
         queryFn: async () => {
-            const res = await axiosPublicUser.get(`/users/${user?.email}`);
+            const res = await axiosPublic.get(`/users/${user?.email}`);
             return res.data;
         }
     })
@@ -64,7 +62,7 @@ const AddPost = () => {
                 <Link to="/membership" className="btn">Become a Member</Link>
             </div>
             :
-            <div className="lg:my-10 col-span-9 w-5/6 mx-auto">
+            <div className="lg:my-10 col-span-9 w-11/12 md:w-5/6 mx-auto">
                 <form onSubmit={handleSubmit(onSubmit)} className="mx-8 bg-orange-50 p-16 rounded-3xl border border-cyan-200">
                     <div className="relative z-0 w-full mb-5 group">
                         <input type="text" {...register('authorName')} defaultValue={user?.displayName} readOnly className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />

@@ -27,7 +27,7 @@ const MyPosts = () => {
 
 
     return (
-        <div className="col-span-9 w-5/6 mx-auto my-10 bg-orange-50 rounded-2xl border border-orange-300 p-7">
+        <div className="col-span-9 w-full md:w-5/6 mx-auto my-10 bg-orange-50 rounded-2xl border border-orange-300 p-7">
             <div className="overflow-x-auto">
                 <table className="table text-center">
                     {/* head */}
