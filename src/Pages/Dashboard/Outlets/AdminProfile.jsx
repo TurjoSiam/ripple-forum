@@ -62,7 +62,7 @@ const AdminProfile = () => {
 
 
     return (
-        <div className="col-span-9">
+        <div className="col-span-9 my-10">
             <div className="flex items-center justify-between max-w-sm mx-auto bg-white shadow-lg rounded-2xl p-4">
                 <img
                     src={data?.photo}
