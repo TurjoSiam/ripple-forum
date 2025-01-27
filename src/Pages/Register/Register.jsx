@@ -5,6 +5,8 @@ import AuthContext from "../../Context/AuthContext";
 import { Slide, toast } from "react-toastify";
 import { FcGoogle } from "react-icons/fc";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import registerLottie from "../../assets/registerLottie.json"
+import Lottie from "lottie-react";
 
 
 const Register = () => {
@@ -91,7 +93,7 @@ const Register = () => {
     }
 
     return (
-        <div className="my-10">
+        <div className="my-10 flex items-center flex-col-reverse lg:flex-row">
             <form onSubmit={handleSubmit(onSubmit)} className="lg:w-2/3 mx-8 bg-cyan-50 p-10 md:p-16 rounded-3xl border border-cyan-200">
                 <h1 className="mx-auto text-center text-[30px] font-bold mb-6">Create Your Account</h1>
                 <div className="relative z-0 w-full mb-5 group">
@@ -119,6 +121,9 @@ const Register = () => {
                 <button onClick={handleGoogleSignin} className="btn w-full md:w-auto md:ml-2 mt-1 md:mt-0 bg-blue-200"><FcGoogle /> Sign In with Google</button>
                 <h2 className=" text-sm mt-6">Already have an account? <Link className="text-blue-600 hover:underline" to="/login">Login</Link></h2>
             </form>
+            <div className="w-1/3">
+                <Lottie className="max-w-xs lg:max-w-full" animationData={registerLottie}></Lottie>
+            </div>
         </div>
     );
 };

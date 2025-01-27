@@ -5,6 +5,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Slide, toast } from "react-toastify";
 import AuthContext from "../../Context/AuthContext";
 import { FcGoogle } from "react-icons/fc";
+import Lottie from "lottie-react";
+import loginLottie from "../../assets/loginLottie.json"
 
 
 const Login = () => {
@@ -58,7 +60,7 @@ const Login = () => {
 
 
     return (
-        <div className="my-10">
+        <div className="my-10 flex flex-col-reverse items-center lg:flex-row">
             <form onSubmit={handleSubmit(onSubmit)} className="lg:w-2/3 mx-8 bg-violet-50 p-10 md:p-16 rounded-3xl border border-violet-200">
                 <h1 className="mx-auto text-center text-[30px] font-bold mb-6">Sign In to Your Account</h1>
                 <div className="relative z-0 w-full mb-5 group">
@@ -73,6 +75,9 @@ const Login = () => {
                 <button onClick={handleGoogleSignin} className="btn w-full md:w-auto md:ml-2 bg-blue-200"><FcGoogle /> Sign In with Google</button>
                 <h2 className=" text-sm mt-6">Don't have an account'? <Link className="text-blue-600 hover:underline" to="/register">Register</Link></h2>
             </form>
+            <div className="w-1/3">
+                <Lottie className="max-w-xs lg:max-w-full" animationData={loginLottie}></Lottie>
+            </div>
         </div>
     );
 };
