@@ -1,16 +1,22 @@
 
 import { useForm } from "react-hook-form";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAxiosPrivate from "../../Hooks/useAxiosPrivate";
 
 const Comments = () => {
 
     const postComments = useLoaderData();
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
 
-
-    const onSubmit = (data) => {
-        console.log(data);
+    const axiosPrivate = useAxiosPrivate();
+    const onSubmit = async (data) => {
+        const res = await axiosPrivate.post('/reports', data)
+        if (res.data.insertedId) {
+            Swal.fire("Report Added Successfully!");
+        }
+        reset();
     }
 
 
@@ -42,6 +48,7 @@ const Comments = () => {
                                             <option value="Spam Comment">Spam Comment</option>
                                             <option value="Bullying Behavior">Bullying Behavior</option>
                                         </select>
+                                        <input defaultValue={comment._id} hidden {...register('commentId')} type="text" />
                                         <input type="submit" value="Report" className="btn bg-red-300 hover:bg-red-400" />
                                     </form>
                                 </td>

@@ -46,7 +46,7 @@ const Login = () => {
                     position: 'bottom-right',
                     transition: Slide
                 })
-                navigate("/")
+                navigate(from)
             })
             .catch(error => {
                 console.log('ERROR', error.message);

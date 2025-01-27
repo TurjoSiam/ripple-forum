@@ -43,5 +43,6 @@ A social media forum where users can post, read and share thoughts
 - `react lottie`
 - `axios`
 - `tanstack query`
+- `rechart`
 
 ## Live Site URL

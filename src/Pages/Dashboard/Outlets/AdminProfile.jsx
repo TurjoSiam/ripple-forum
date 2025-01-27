@@ -7,6 +7,8 @@ import { useQuery } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 
+
+
 const AdminProfile = () => {
 
     const { user } = useContext(AuthContext);
@@ -54,7 +56,6 @@ const AdminProfile = () => {
         }
         reset();
     }
-
 
 
 

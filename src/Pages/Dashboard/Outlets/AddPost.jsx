@@ -25,6 +25,7 @@ const AddPost = () => {
         }
     })
 
+    const axiosPrivate = useAxiosPrivate();
     const { data: post, isFetching } = useQuery({
         queryKey: ['post'],
         queryFn: async () => {

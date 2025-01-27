@@ -6,7 +6,6 @@ import Login from "../Pages/Login/Login";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import Membership from "../Pages/Membership/Membership";
 import PostDetails from "../Pages/PostDetails/PostDetails";
-import Comments from "../Pages/Comments/Comments";
 import MyProfile from "../Pages/Dashboard/Outlets/MyProfile";
 import AddPost from "../Pages/Dashboard/Outlets/AddPost";
 import MyPosts from "../Pages/Dashboard/Outlets/MyPosts";
@@ -16,6 +15,7 @@ import Announcement from "../Pages/Dashboard/Outlets/Announcement";
 import AdminProfile from "../Pages/Dashboard/Outlets/AdminProfile";
 import EditProfile from "../Pages/EditProfile/EditProfile";
 import PrivateRoute from "../Pages/PrivateRoute/PrivateRoute";
+import Comments from "../Pages/Comments/Comments";
 
 
 
@@ -85,7 +85,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/comments/:postId",
-                element: <PrivateRoute><Membership></Membership></PrivateRoute>,
+                element: <PrivateRoute><Comments></Comments></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/comments/${params.postId}`)
             }
         ]
