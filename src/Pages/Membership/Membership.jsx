@@ -64,7 +64,7 @@ const Membership = () => {
                 <li>Post more than 5 articles on the website.</li>
             </ul>
             <button
-                className="btn py-2 px-4"
+                className="btn py-2 px-4 bg-gradient-to-tr from-orange-200 to-green-200"
                 onClick={() => handlePurchase(user?.email)}
             >
                 Purchase Now

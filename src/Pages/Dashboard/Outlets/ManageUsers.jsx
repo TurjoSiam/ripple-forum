@@ -87,7 +87,7 @@ const ManageUsers = () => {
             <div className="w-11/12 md:w-5/6 mx-auto my-10 bg-orange-50 rounded-2xl border border-orange-300 p-7">
                 <form onSubmit={handleSubmit} className="flex items-center gap-1 mb-5 rounded-xl">
                     <input ref={inputRef} name="search" type="text" placeholder="Search by Username" className="input input-bordered w-full max-w-xs" />
-                    <input className="btn bg-orange-400" type="submit" value="Search" />
+                    <input className="btn bg-orange-500 hover:bg-orange-400" type="submit" value="Search" />
                 </form>
                 <div className="overflow-x-auto">
                     <table className="table text-center">
@@ -107,7 +107,7 @@ const ManageUsers = () => {
                                     <th>{index + 1}</th>
                                     <td>{user?.name}</td>
                                     <td>{user?.email}</td>
-                                    <td><button onClick={() => handleAdmin(user?._id)} className="btn">Make Admin</button></td>
+                                    <td><button onClick={() => handleAdmin(user?._id)} className="btn bg-orange-400 hover:bg-orange-300">Make Admin</button></td>
                                     <td>{user?.role}</td>
                                 </tr>)
                             }

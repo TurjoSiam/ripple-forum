@@ -14,6 +14,7 @@ import ManageUsers from "../Pages/Dashboard/Outlets/ManageUsers";
 import Report from "../Pages/Dashboard/Outlets/Report";
 import Announcement from "../Pages/Dashboard/Outlets/Announcement";
 import AdminProfile from "../Pages/Dashboard/Outlets/AdminProfile";
+import EditProfile from "../Pages/EditProfile/EditProfile";
 
 
 
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login></Login>
+            },
+            {
+                path: "/editprofile",
+                element: <EditProfile></EditProfile>
             },
             {
                 path: "/dashboard",

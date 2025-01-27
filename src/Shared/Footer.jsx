@@ -8,7 +8,7 @@ const Footer = () => {
             <div className="lg:flex lg:justify-between">
                 <div className="mb-6 md:mb-0">
                     <Link to="/">
-                        <span className="self-center text-4xl font-bold whitespace-nowrap text-blue-900">Ripple</span>
+                        <span className="self-center text-4xl font-bold whitespace-nowrap text-orange-600">Ripple</span>
                     </Link>
                 </div>
                 <div className="grid grid-cols-2 gap-3 md:gap-6 md:grid-cols-3">

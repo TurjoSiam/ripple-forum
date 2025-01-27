@@ -8,6 +8,7 @@ import { IoMdTime } from "react-icons/io";
 import { FaRegComment } from "react-icons/fa";
 import { BiDownvote, BiUpvote } from "react-icons/bi";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import { Link } from "react-router-dom";
 
 
 const MyProfile = () => {
@@ -62,6 +63,7 @@ const MyProfile = () => {
                             <img src={gold} alt="badge" />
                         </>
                 }
+                <Link to="/editprofile" className="btn bg-orange-400 hover:bg-orange-300">Update</Link>
             </div>
 
             {/* post */}

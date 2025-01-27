@@ -49,7 +49,7 @@ const MyPosts = () => {
                                     <span className="flex items-center gap-1"><BiDownvote /> {post?.downvote}</span>
                                 </td>
                                 <td>
-                                    <Link to={`/comments/${post?._id}`} className="btn mr-2 bg-blue-300 hover:bg-blue-400">Comments</Link>
+                                    <Link to={`/comments/${post?._id}`} className="btn mr-2 bg-green-300 hover:bg-green-400">Comments</Link>
                                     <button className="btn bg-red-300 hover:bg-red-400">Delete</button>
                                 </td>
                             </tr>)

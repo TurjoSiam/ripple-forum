@@ -50,7 +50,7 @@ const Posts = () => {
             {/* search bar */}
             <form onSubmit={handleSubmit} className="flex items-center gap-1 absolute -top-16 md:-top-20 left-4 md:left-10 lg:left-24 border-2 border-orange-400 rounded-xl">
                 <input ref={inputRef} name="tag" defaultValue={clickedTag} type="text" placeholder="Search by Tag" className="input-xs input-bordered w-full max-w-xs bg-transparent text-orange-200" />
-                <input className="btn bg-orange-400" type="submit" value="Search" />
+                <input className="btn bg-orange-400 hover:bg-orange-300 border-none" type="submit" value="Search" />
             </form>
             {/* tags */}
             <div className="w-full bg-zinc-100 p-3 md:p-6 text-center rounded-lg shadow-md">
@@ -69,8 +69,8 @@ const Posts = () => {
             </div>
             {/* cards of posts */}
             <div className="flex items-center justify-end gap-1 w-11/12 lg:w-6/12 mx-auto my-2">
-                <button onClick={() => setSortBy('popularity')} className="btn">Sort By Popularity <FaSortNumericDownAlt /></button>
-                <button onClick={() => setSortBy('')} className="btn">Reset <RiResetLeftFill /></button>
+                <button onClick={() => setSortBy('popularity')} className="btn bg-gradient-to-tr from-orange-200 to-green-100">Sort By Popularity <FaSortNumericDownAlt /></button>
+                <button onClick={() => setSortBy('')} className="btn bg-gradient-to-tr from-red-200 to-green-100">Reset <RiResetLeftFill /></button>
             </div>
             <div className="w-11/12 md:w-6/12 mx-auto my-5">
                 {

@@ -82,7 +82,7 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <Link to="/" className="btn btn-ghost font-bold text-3xl">Ripple</Link>
+                    <Link to="/" className="btn btn-ghost font-bold text-orange-600 text-3xl">Ripple</Link>
                     <div className="hidden md:flex">
                         <ul className="menu menu-horizontal ml-10 px-1">
                             {links}
@@ -111,7 +111,7 @@ const Navbar = () => {
                             </>
                             :
                             <>
-                                <Link to="/register" className="btn">Join Us</Link>
+                                <Link to="/register" className="btn bg-orange-400 hover:bg-orange-300">Join Us</Link>
 
                             </>
                     }
