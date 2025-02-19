@@ -47,7 +47,7 @@ const Posts = () => {
 
 
     return (
-        <div className="flex items-start gap-14 my-16 w-10/12 mx-auto">
+        <div className="flex flex-col-reverse lg:flex-row items-start gap-14 my-16 w-10/12 mx-auto">
 
             {/* cards */}
             <div className="md:w-3/4 w-full mx-auto flex flex-col items-center">
@@ -61,7 +61,7 @@ const Posts = () => {
             <div className="md:w-1/4 w-full mx-auto flex flex-col gap-5 items-center">
                 {/* filter */}
                 <div className="flex items-center justify-center gap-1 w-11/12 lg:w-6/12 mx-auto my-2">
-                    <button onClick={() => setSortBy('popularity')} className="btn bg-cyan-400 hover:bg-cyan-200">Sort By Popularity <FaSortNumericDownAlt /></button>
+                    <button onClick={() => setSortBy('popularity')} className="btn bg-cyan-400 hover:bg-cyan-200 ">Sort By Popularity <FaSortNumericDownAlt /></button>
                     <button onClick={() => setSortBy('')} className="btn btn-outline text-cyan-700 hover:bg-cyan-100 hover:text-black">Reset <RiResetLeftFill /></button>
                 </div>
 

@@ -19,7 +19,8 @@ const Navbar = () => {
         <li><NavLink className="px-0 mr-5 text-white" to="/allpost">All post</NavLink></li>
         {
             user && <>
-                <li><NavLink className="px-0 mr-5" to="/membership">Membership</NavLink></li>
+                <li><NavLink className="px-0 mr-5 text-white" to="/membership">Membership</NavLink></li>
+                <li><NavLink className="px-0 mr-5 text-white" to="/aboutus">About Us</NavLink></li>
             </>
         }
     </>
@@ -121,7 +122,7 @@ const Navbar = () => {
                 <div className="navbar-end">
 
                     {/* theme toggle */}
-                <button className="btn btn-square btn-ghost mr-5">
+                <button className="btn btn-square btn-ghost mr-2">
                     <label className="swap swap-rotate w-12 h-12">
                         <input type="checkbox" onChange={handleToggle} className="hidden"
                             // show toggle image based on localstorage theme
@@ -136,9 +137,9 @@ const Navbar = () => {
                     {
                         user ?
                             <>
-                                <a href="#announcement" className="btn btn-sm p-0 bg-transparent hover:bg-green-100 mr-5 flex items-start gap-0"><IoIosNotifications className="text-2xl" /><div className="badge w-4 bg-orange-300 rounded-full">{announcements?.length}</div></a>
+                                <a href="#announcement" className="btn mt-2 border-none btn-sm p-0 bg-transparent hover:bg-purple-600 mr-5 flex items-start gap-0"><IoIosNotifications className="text-2xl text-white" /><div className="badge w-1 border-none text-[10px] bg-orange-300 rounded-full">{announcements?.length}</div></a>
                                 <details className="dropdown dropdown-end">
-                                    <summary className="w-10 h-10 rounded-full btn p-0">
+                                    <summary className="w-10 h-10 rounded-full border-none btn bg-transparent p-0">
                                         <img className="w-10 h-10 rounded-full object-cover" src={user?.photoURL} alt="user photo" />
                                     </summary>
                                     <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">

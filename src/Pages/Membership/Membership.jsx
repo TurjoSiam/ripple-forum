@@ -54,7 +54,7 @@ const Membership = () => {
 
 
     return (
-        <div className="w-11/12 lg:w-6/12 mx-auto bg-green-50 p-5 md:p-10 my-20 rounded-lg shadow-md">
+        <div className="w-11/12 lg:w-6/12 mx-auto bg-purple-100 p-5 md:p-10 my-20 rounded-lg shadow-md">
             <h2 className="text-2xl font-bold mb-4">Go Premium!</h2>
             <p className="text-gray-700 mb-4">
                 Unlock exclusive benefits with a Premium Membership for just $50!
@@ -64,7 +64,7 @@ const Membership = () => {
                 <li>Post more than 5 articles on the website.</li>
             </ul>
             <button
-                className="btn py-2 px-4 bg-gradient-to-tr from-orange-200 to-green-200"
+                className="btn-main"
                 onClick={() => handlePurchase(user?.email)}
             >
                 Purchase Now

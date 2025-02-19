@@ -21,7 +21,7 @@ const Post = ({ item }) => {
 
 
     return (
-        <Link to={`/post/${_id}`} className="w-full bg-white shadow-md shadow-purple-200 rounded-lg p-4 flex flex-row items-start mb-4">
+        <Link to={`/post/${_id}`} className="w-full bg-white shadow-md rounded-lg p-4 flex flex-row items-start mb-4">
             <img
                 src={authorImage}
                 alt={authorName}

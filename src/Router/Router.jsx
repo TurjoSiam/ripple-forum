@@ -17,6 +17,7 @@ import EditProfile from "../Pages/EditProfile/EditProfile";
 import PrivateRoute from "../Pages/PrivateRoute/PrivateRoute";
 import Comments from "../Pages/Comments/Comments";
 import Allpost from "../Pages/Allpost/Allpost";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 
 
 
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
             {
                 path: "allpost",
                 element: <Allpost></Allpost>
+            },
+            {
+                path: "aboutus",
+                element: <AboutUs></AboutUs>
             },
             {
                 path: "/register",
