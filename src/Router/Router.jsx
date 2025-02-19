@@ -81,12 +81,12 @@ const router = createBrowserRouter([
             {
                 path: "/post/:id",
                 element: <PostDetails></PostDetails>,
-                loader: ({params}) => fetch(`https://ripple-turjo-siams-projects.vercel.app/post/${params.id}`)
+                loader: ({params}) => fetch(`http://localhost:5000/post/${params.id}`)
             },
             {
                 path: "/comments/:postId",
                 element: <PrivateRoute><Comments></Comments></PrivateRoute>,
-                loader: ({params}) => fetch(`https://ripple-turjo-siams-projects.vercel.app/comments/${params.postId}`)
+                loader: ({params}) => fetch(`http://localhost:5000/comments/${params.postId}`)
             }
         ]
     },

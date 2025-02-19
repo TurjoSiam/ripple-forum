@@ -5,7 +5,7 @@ import AuthContext from "../Context/AuthContext";
 
 
 const axiosPrivate = axios.create({
-    baseURL: "https://ripple-turjo-siams-projects.vercel.app"
+    baseURL: "http://localhost:5000"
 })
 
 const useAxiosPrivate = () => {
