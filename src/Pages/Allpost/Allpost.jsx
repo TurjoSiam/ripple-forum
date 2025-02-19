@@ -1,12 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
-import Post from "./Post";
 import { useRef, useState } from "react";
 import { FaSortNumericDownAlt } from "react-icons/fa";
 import { RiResetLeftFill } from "react-icons/ri";
+import PostDe from "./PostDe";
 
-
-const Posts = () => {
+const Allpost = () => {
 
     const [search, setSearch] = useState('');
     const [sortBy, setSortBy] = useState('');
@@ -24,7 +23,7 @@ const Posts = () => {
     const { data, isFetching } = useQuery({
         queryKey: ['posts', search, sortBy],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/posts?search=${search}&sortBy=${sortBy}`);
+            const res = await axiosPublic.get(`/postde?search=${search}&sortBy=${sortBy}`);
             return res.data;
         }
     })
@@ -51,7 +50,7 @@ const Posts = () => {
             {/* cards */}
             <div className="md:w-3/4 w-full mx-auto">
                 {
-                    data.map(item => <Post key={item._id} item={item}></Post>)
+                    data.map(item => <PostDe key={item._id} item={item}></PostDe>)
                 }
             </div>
 
@@ -85,8 +84,7 @@ const Posts = () => {
 
 
         </div>
-
     );
 };
 
-export default Posts;
+export default Allpost;

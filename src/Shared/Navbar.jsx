@@ -13,7 +13,8 @@ const Navbar = () => {
     const { user, signOutUser, loading } = useContext(AuthContext);
 
     const links = <>
-        <li><NavLink className="px-0 mr-5" to="/">Home</NavLink></li>
+        <li><NavLink className="px-0 mr-5 text-white" to="/">Home</NavLink></li>
+        <li><NavLink className="px-0 mr-5 text-white" to="/allpost">All post</NavLink></li>
         {
             user && <>
                 <li><NavLink className="px-0 mr-5" to="/membership">Membership</NavLink></li>
@@ -58,7 +59,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="lg:px-20 sticky top-0 bg-teal-50 z-10">
+        <div className="lg:px-20 sticky top-0 bg-gradient-to-tr from-[#125B99] to-[#352A7D] z-10">
             <div className="navbar">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -82,7 +83,7 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <Link to="/" className="btn btn-ghost font-bold text-orange-600 text-3xl">Ripple</Link>
+                    <Link to="/" className="btn btn-ghost font-bold primary-color text-3xl">Ripple</Link>
                     <div className="hidden md:flex">
                         <ul className="menu menu-horizontal ml-10 px-1">
                             {links}
@@ -111,7 +112,7 @@ const Navbar = () => {
                             </>
                             :
                             <>
-                                <Link to="/register" className="btn bg-orange-400 hover:bg-orange-300">Join Us</Link>
+                                <Link to="/register" className="btn-main">Join Us</Link>
 
                             </>
                     }

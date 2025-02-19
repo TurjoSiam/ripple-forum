@@ -16,6 +16,7 @@ import AdminProfile from "../Pages/Dashboard/Outlets/AdminProfile";
 import EditProfile from "../Pages/EditProfile/EditProfile";
 import PrivateRoute from "../Pages/PrivateRoute/PrivateRoute";
 import Comments from "../Pages/Comments/Comments";
+import Allpost from "../Pages/Allpost/Allpost";
 
 
 
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>
+            },
+            {
+                path: "allpost",
+                element: <Allpost></Allpost>
             },
             {
                 path: "/register",

@@ -3,13 +3,44 @@
 @tailwind utilities;
 
 a.active {
-    background-color: rgb(237 250 250) !important;
-    border-bottom: 3px solid orange;
+    background-color: rgba(237, 250, 250, 0) !important;
+    border-bottom: 3px solid #E54E4E;
     border-radius: 0px;
-    color: black !important;
+    color: white !important;
     font-weight: bold;
 }
 
 html{
     overflow-y: scroll;
+}
+
+.primary-color {
+    color: #E54E4E;
+}
+
+.btn-main {
+    padding: 10px 20px;
+    background-color: #E54E4E;
+    color: white;
+    outline: 1px solid #E54E4E;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+@keyframes fadeEffect {
+    0% {
+        background-color: #E54E4E;
+        color: white;
+    }
+    100% {
+        background-color: #e4e9de;
+        color: black;
+    }
+}
+
+.btn-main:hover {
+    background-color: white;
+    outline: 1px solid #E54E4E;
+    color: black;
+    animation: fadeEffect 0.5s ease forwards;
 }

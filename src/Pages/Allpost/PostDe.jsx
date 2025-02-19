@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 
-
-const Post = ({ item }) => {
+const PostDe = ({ item }) => {
 
     const { _id, authorImage, authorName, voteDifference, title, tag, time, description } = item;
 
@@ -18,7 +17,6 @@ const Post = ({ item }) => {
             return res.data;
         }
     })
-
 
     return (
         <Link to={`/post/${_id}`} className="w-full bg-white shadow-md shadow-purple-200 rounded-lg p-4 flex flex-row items-start mb-4">
@@ -33,14 +31,14 @@ const Post = ({ item }) => {
                 <p className="text-gray-700 text-sm mb-3">{description}</p>
                 <div className="text-sm text-gray-600 mt-1 flex items-center justify-between">
                     <div className="flex items-center">
-                    <span className="bg-purple-200 text-gray-700 rounded-full px-3 py-1 text-xs font-medium mr-2">
-                        {tag}
-                    </span>
-                    <span className="flex items-center gap-1"><IoMdTime className="text-orange-600" />{time}</span>
+                        <span className="bg-purple-200 text-gray-700 rounded-full px-3 py-1 text-xs font-medium mr-2">
+                            {tag}
+                        </span>
+                        <span className="flex items-center gap-1"><IoMdTime className="text-orange-600" />{time}</span>
                     </div>
                     <div className="flex flex-row items-center">
                         <div className="flex items-center mr-4 text-gray-600">
-                            <span className="flex items-center gap-1"><FaRegComment className="text-blue-500" />{comments?.length}</span>
+                            <span className="flex items-center gap-1"><FaRegComment className="text-blue-600" />{comments?.length}</span>
                         </div>
                         <div className="flex items-center text-gray-600">
                             <span className="flex items-center gap-1"><BiUpvote className="text-green-600" />{voteDifference}</span>
@@ -53,4 +51,4 @@ const Post = ({ item }) => {
     );
 };
 
-export default Post;
+export default PostDe;
