@@ -4,6 +4,7 @@ import Post from "./Post";
 import { useRef, useState } from "react";
 import { FaSortNumericDownAlt } from "react-icons/fa";
 import { RiResetLeftFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 
 const Posts = () => {
@@ -46,13 +47,14 @@ const Posts = () => {
 
 
     return (
-        <div className="flex items-start gap-14 my-10 w-10/12 mx-auto">
+        <div className="flex items-start gap-14 my-16 w-10/12 mx-auto">
 
             {/* cards */}
-            <div className="md:w-3/4 w-full mx-auto">
+            <div className="md:w-3/4 w-full mx-auto flex flex-col items-center">
                 {
                     data.map(item => <Post key={item._id} item={item}></Post>)
                 }
+                <Link to="/allpost" className="btn-main">See All Posts</Link>
             </div>
 
             {/* search and filter functionality */}
