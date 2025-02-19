@@ -25,24 +25,25 @@ const ShowAnnouncement = () => {
         announcements?.length > 0 ?
             <>
                 {
-                    announcements.map(announcement => <div id="announcement" key={announcement?._id} className="bg-gradient-to-tr from-orange-100 to-green-100 max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-6 my-6 border border-gray-200">
-                        <div className="flex items-center justify-between mb-4">
-                            <h2 className="text-2xl font-semibold text-gray-800">{announcement?.title}</h2>
-                            <span className="text-sm text-gray-500 flex items-center gap-1"><IoMdTime />{announcement?.time}</span>
-                        </div>
-                        <p className="text-gray-600 mb-6">{announcement?.description}</p>
-                        <div className="flex items-center">
-                            <img
-                                src={announcement?.authorImage}
-                                alt="author image"
-                                className="w-12 h-12 rounded-full border object-cover border-gray-300"
-                            />
-                            <div className="ml-4">
-                                <p className="text-gray-800 font-medium">{announcement?.authorName}</p>
-                                <p className="text-gray-500 text-sm">Author</p>
+                    announcements.map(announcement =>
+                        <div id="announcement" key={announcement?._id} className="bg-gradient-to-tr from-purple-100 to-cyan-100 w-full mx-auto bg-white shadow-lg rounded-lg py-6 px-6 lg:px-32 my-6 border border-gray-200">
+                            <div className="flex items-center justify-between mb-4">
+                                <h2 className="text-2xl font-semibold text-gray-800">{announcement?.title}</h2>
+                                <span className="text-sm text-gray-500 flex items-center gap-1"><IoMdTime />{announcement?.time}</span>
                             </div>
-                        </div>
-                    </div>)
+                            <p className="text-gray-600 mb-6">{announcement?.description}</p>
+                            <div className="flex items-center">
+                                <img
+                                    src={announcement?.authorImage}
+                                    alt="author image"
+                                    className="w-12 h-12 rounded-full border object-cover border-gray-300"
+                                />
+                                <div className="ml-4">
+                                    <p className="text-gray-800 font-medium">{announcement?.authorName}</p>
+                                    <p className="text-gray-500 text-sm">Author</p>
+                                </div>
+                            </div>
+                        </div>)
                 }
             </>
             :

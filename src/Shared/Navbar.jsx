@@ -1,10 +1,12 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import AuthContext from "../Context/AuthContext";
 import { Slide, toast } from "react-toastify";
 import { IoIosNotifications } from "react-icons/io";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
+import { MdSunny } from "react-icons/md";
+import { IoMoon } from "react-icons/io5";
 
 const Navbar = () => {
 
@@ -48,6 +50,29 @@ const Navbar = () => {
             return res.data;
         }
     })
+
+
+     // theme toggler
+     const [theme, setTheme] = useState(
+        localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+      );
+    
+      // update state on toggle
+      const handleToggle = (e) => {
+        if (e.target.checked) {
+          setTheme("dark");
+        } else {
+          setTheme("light");
+        }
+      };
+    
+      // set theme state in localstorage on mount & also update localstorage on state change
+      useEffect(() => {
+        localStorage.setItem("theme", theme);
+        const localTheme = localStorage.getItem("theme");
+        // add custom data-theme attribute to html tag required to update theme using DaisyUI
+        document.querySelector("html").setAttribute("data-theme", localTheme);
+      }, [theme]);
 
 
 
@@ -94,6 +119,20 @@ const Navbar = () => {
 
                 </div>
                 <div className="navbar-end">
+
+                    {/* theme toggle */}
+                <button className="btn btn-square btn-ghost mr-5">
+                    <label className="swap swap-rotate w-12 h-12">
+                        <input type="checkbox" onChange={handleToggle} className="hidden"
+                            // show toggle image based on localstorage theme
+                            checked={theme === "light" ? false : true} />
+                        {/* light theme sun image */}
+                        <MdSunny className="w-5 h-5 swap-on text-white" />
+                        {/* dark theme moon image */}
+                        <IoMoon className="w-5 h-5 swap-off text-white" />
+                    </label>
+                </button>
+
                     {
                         user ?
                             <>
