@@ -28,19 +28,19 @@ const Sidebar = () => {
     return (
         data?.role === "admin" ?
             <>
-                <div className="col-span-3 border min-h-screen bg-teal-50 border-green-500">
-                    <NavLink to="/dashboard/adminprofile" className="btn w-full bg-transparent">Admin Profile</NavLink>
-                    <NavLink to="/dashboard/manageusers" className="btn w-full bg-transparent">Manage Users</NavLink>    
-                    <NavLink to="/dashboard/announcement" className="btn w-full bg-transparent">Make Announcement</NavLink>
-                    <NavLink to="/dashboard/report" className="btn w-full bg-transparent">Reported Comments/ Activities</NavLink>
+                <div className="col-span-3 border min-h-screen bg-gradient-to-tr from-[#125B99] to-[#352A7D] border-purple-500">
+                    <NavLink to="/dashboard/adminprofile" className="btn border-none hover:border-none text-white w-full hover:bg-blue-800 bg-transparent">Admin Profile</NavLink>
+                    <NavLink to="/dashboard/manageusers" className="btn border-none hover:border-none text-white w-full hover:bg-blue-800 bg-transparent">Manage Users</NavLink>    
+                    <NavLink to="/dashboard/announcement" className="btn border-none hover:border-none text-white w-full hover:bg-blue-800 bg-transparent">Make Announcement</NavLink>
+                    <NavLink to="/dashboard/report" className="btn border-none hover:border-none text-white w-full hover:bg-blue-800 bg-transparent">Reported Comments/ Activities</NavLink>
                 </div>
             </>
             :
             <>
-                <div className="col-span-3 border min-h-screen bg-teal-50 border-green-500">
-                    <NavLink to="/dashboard/myprofile" className="btn w-full bg-transparent">My Profile</NavLink>
-                    <NavLink to="/dashboard/addpost" className="btn w-full bg-transparent">Add Post</NavLink>
-                    <NavLink to="/dashboard/myposts" className="btn w-full bg-transparent">My Posts</NavLink>
+                <div className="col-span-3 border min-h-screen bg-gradient-to-tr from-[#125B99] to-[#352A7D] border-purple-500">
+                    <NavLink to="/dashboard/myprofile" className="btn border-none hover:border-none text-white w-full hover:bg-blue-800 bg-transparent">My Profile</NavLink>
+                    <NavLink to="/dashboard/addpost" className="btn border-none hover:border-none text-white w-full hover:bg-blue-800 bg-transparent">Add Post</NavLink>
+                    <NavLink to="/dashboard/myposts" className="btn border-none hover:border-none text-white w-full hover:bg-blue-800 bg-transparent">My Posts</NavLink>
                 </div>
             </>
 
