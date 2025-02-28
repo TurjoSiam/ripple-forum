@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Countdown = () => {
     return (
-        <div className="w-full mx-auto my-16 py-8 bg-cyan-200 flex flex-col items-center gap-5">
+        <div className="w-full mx-auto my-16 py-8 bg-cyan-200 flex flex-col items-center gap-5 text-black dark:text-black">
             <h2 className="text-xl font-bold text-center">
                 Limited Time Left! Upgrade to Premium for Exclusive Features!
             </h2>

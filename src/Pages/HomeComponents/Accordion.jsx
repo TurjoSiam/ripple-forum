@@ -2,8 +2,8 @@
 
 const Accordion = () => {
     return (
-        <div className="w-10/12 mx-auto my-16">
-            <div className="collapse collapse-arrow bg-gray-50">
+        <div className="w-10/12 mx-auto my-16 text-black dark:text-black">
+            <div className="collapse collapse-arrow bg-gray-50 ">
                 <input type="radio" name="my-accordion-2" defaultChecked />
                 <div className="collapse-title text-xl font-medium">What is Ripple?</div>
                 <div className="collapse-content">

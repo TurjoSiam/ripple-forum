@@ -46,7 +46,7 @@ const Footer = () => {
             </div>
             <hr className="my-3 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-3" />
             <div className="sm:flex sm:items-center sm:justify-between">
-                <span className="text-sm text-white sm:text-center">© 2024 <a href="https://flowbite.com/" className="hover:underline">Turjo Siam™</a>. All Rights Reserved.
+                <span className="text-sm text-white sm:text-center">© 2024 <a href="https://portfolio-turjosiam.netlify.app/" className="hover:underline">Turjo Siam™</a>. All Rights Reserved.
                 </span>
                 <div className="flex mt-4 sm:justify-center sm:mt-0">
                     <a href="https://www.facebook.com/tur.jo.9275" className="text-gray-200 hover:text-gray-900 dark:hover:text-white">

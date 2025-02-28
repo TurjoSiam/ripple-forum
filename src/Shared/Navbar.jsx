@@ -20,9 +20,10 @@ const Navbar = () => {
         {
             user && <>
                 <li><NavLink className="px-0 mr-5 text-white" to="/membership">Membership</NavLink></li>
-                <li><NavLink className="px-0 mr-5 text-white" to="/aboutus">About Us</NavLink></li>
+                <li><NavLink className="px-0 mr-5 text-white" to="/dashboard">Dashboard</NavLink></li>
             </>
         }
+        <li><NavLink className="px-0 mr-5 text-white" to="/aboutus">About Us</NavLink></li>
     </>
 
     const handleSignOut = () => {
@@ -71,7 +72,7 @@ const Navbar = () => {
       useEffect(() => {
         localStorage.setItem("theme", theme);
         const localTheme = localStorage.getItem("theme");
-        // add custom data-theme attribute to html tag required to update theme using DaisyUI
+        // add custom data-theme attribute to html tag required to update theme using DaisyUIl
         document.querySelector("html").setAttribute("data-theme", localTheme);
       }, [theme]);
 

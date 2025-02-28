@@ -52,7 +52,7 @@ const Posts = () => {
             {/* cards */}
             <div className="md:w-3/4 w-full mx-auto flex flex-col items-center">
                 {
-                    data.map(item => <Post key={item._id} item={item}></Post>)
+                    data?.map(item => <Post key={item._id} item={item}></Post>)
                 }
                 <Link to="/allpost" className="btn-main">See All Posts</Link>
             </div>
@@ -61,7 +61,7 @@ const Posts = () => {
             <div className="md:w-1/4 w-full mx-auto flex flex-col gap-5 items-center">
                 {/* filter */}
                 <div className="flex items-center justify-center gap-1 w-11/12 lg:w-6/12 mx-auto my-2">
-                    <button onClick={() => setSortBy('popularity')} className="btn bg-cyan-400 hover:bg-cyan-200 ">Sort By Popularity <FaSortNumericDownAlt /></button>
+                    <button onClick={() => setSortBy('popularity')} className="btn text-black dark:text-black bg-cyan-400 hover:bg-cyan-200 hover:text-black hover:dark:text-black ">Sort By Popularity <FaSortNumericDownAlt /></button>
                     <button onClick={() => setSortBy('')} className="btn btn-outline text-cyan-700 hover:bg-cyan-100 hover:text-black">Reset <RiResetLeftFill /></button>
                 </div>
 
