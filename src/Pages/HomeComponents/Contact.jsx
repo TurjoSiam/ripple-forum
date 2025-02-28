@@ -3,7 +3,7 @@ const Contact = () => {
     return (
         <div className="w-full my-16 mx-auto">
             <h2 className="text-2xl font-bold text-center">Contact Us</h2>
-            <form className="card-body lg:w-8/12 w-8/12 mx-auto">
+            <form className="card-body lg:w-8/12 w-10/12 mx-auto">
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Name</span>
