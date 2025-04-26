@@ -10,7 +10,7 @@ import Timeline from "../HomeComponents/Timeline";
 
 const Home = () => {
     return (
-        <div>
+        <div className="bg-blue-100 dark:bg-gray-600">
             <Banner></Banner>
             <Posts></Posts>
             <ShowAnnouncement></ShowAnnouncement>
