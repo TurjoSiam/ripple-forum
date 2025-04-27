@@ -25,6 +25,7 @@ const Contact = () => {
                 position: "bottom-right",
                 transition: Slide
             });
+            event.target.reset();
         }
     };
 
