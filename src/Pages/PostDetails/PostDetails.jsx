@@ -98,10 +98,10 @@ const PostDetails = () => {
                 user ?
                     <>
                         <div className="flex items-center gap-4 mb-4">
-                            <button ref={upButtonRef} onClick={() => handleUpVote(_id)} className="btn px-4 py-2 rounded-md"><BiUpvote />
+                            <button ref={upButtonRef} onClick={() => handleUpVote(_id)} className="btn px-4 py-2 rounded-md border-orange-600 hover:bg-green-200  text-green-600 bg-orange-100"><BiUpvote className="text-green-600" />
                                 Upvote
                             </button>
-                            <button ref={downButtonRef} onClick={() => handleDownVote(_id)} className="btn px-4 py-2 rounded-md"><BiDownvote />
+                            <button ref={downButtonRef} onClick={() => handleDownVote(_id)} className="btn px-4 py-2 rounded-md border-orange-600 hover:bg-red-200 hover:text-orange-600 text-red-600 bg-orange-100"><BiDownvote className="text-red-600" />
                                 Downvote
                             </button>
                             <FacebookShareButton url={shareURL}>
@@ -120,7 +120,7 @@ const PostDetails = () => {
                             ></textarea>
                             <button
                                 type="submit"
-                                className="btn px-6 py-2"><MdDownloadDone />
+                                className="btn px-6 py-2 bg-orange-600 hover:bg-orange-100 hover:border-orange-600 hover:text-orange-600 transform transition duration-300 hover:shadow-lg text-white"><MdDownloadDone />
                                 Comment
                             </button>
                         </form>
