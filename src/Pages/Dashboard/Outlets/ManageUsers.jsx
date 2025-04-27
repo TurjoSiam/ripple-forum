@@ -69,11 +69,6 @@ const ManageUsers = () => {
 
     }
     
-    
-
-
-
-
 
     if (isFetching) {
         return <div className="col-span-9 w-full flex items-center justify-center h-screen">
@@ -106,7 +101,7 @@ const ManageUsers = () => {
                                     <th>{index + 1}</th>
                                     <td>{user?.name}</td>
                                     <td>{user?.email}</td>
-                                    <td><button onClick={() => handleAdmin(user?._id)} className="btn bg-orange-400 hover:bg-orange-300">Make Admin</button></td>
+                                    <td><button disabled={user?.role === "admin"} onClick={() => handleAdmin(user?._id)} className="btn bg-orange-400 hover:bg-orange-300">Make Admin</button></td>
                                     <td>{user?.role}</td>
                                 </tr>)
                             }
