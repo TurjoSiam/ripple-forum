@@ -48,6 +48,8 @@ const Comments = () => {
                                             <option value="Spam Comment">Spam Comment</option>
                                             <option value="Bullying Behavior">Bullying Behavior</option>
                                         </select>
+                                        <input defaultValue={comment.email} hidden {...register('email')} type="text" />
+                                        <input defaultValue={comment.comment} hidden {...register('comment')} type="text" />
                                         <input defaultValue={comment._id} hidden {...register('commentId')} type="text" />
                                         <input type="submit" value="Report" className="btn bg-red-300 hover:bg-red-400" />
                                     </form>
