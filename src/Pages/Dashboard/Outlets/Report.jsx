@@ -13,6 +13,10 @@ const Report = () => {
         }
     })
 
+    const handleClick = async (id) => {
+        console.log(id);
+    }
+
 
     return (
         <div className="col-span-9 text-center bg-orange-50 p-10 w-full my-7 mx-7">
@@ -34,7 +38,7 @@ const Report = () => {
                             <td>{report?.comment}</td>
                             <td>{report?.report}</td>
                             <td>{report?.email}</td>
-                            <td><button className="btn btn-error btn-md">Delete</button></td>
+                            <td><button onClick={()=> handleClick(report.commentId)} className="btn btn-error btn-md">Delete</button></td>
                         </tr>)
                     }
                 </tbody>
