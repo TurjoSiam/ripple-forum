@@ -13,15 +13,18 @@ const Report = () => {
         }
     })
 
-    console.log(reports);
 
     return (
         <div className="col-span-9 text-center bg-orange-50 p-10 w-4/6 my-10 mx-auto">
-            {
-                reports?.map((report) =>
-                    <li className="space-x-2" key={report._id}> <span className="bg-green-50">Reported Comment Id: {report?.commentId}</span>: <span className="bg-red-100">Feedback: {report?.report}</span></li>
-                )
-            }
+            <h1 className="text-3xl font-bold text-center">Reported Comments</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Serial</th>
+                        <th>Comment</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
     );
 };
