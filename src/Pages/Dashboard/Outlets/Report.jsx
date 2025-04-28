@@ -23,9 +23,19 @@ const Report = () => {
                         <th>Serial</th>
                         <th>Comment</th>
                         <th>Commenter Email</th>
-                        <th><button className="btn btn-error">Delete</button></th>
+                        <th>Action</th>
                     </tr>
                 </thead>
+                <tbody>
+                    {
+                        reports?.map((report, index) => <tr key={report?._id}>
+                            <th>{index + 1}</th>
+                            <td>{report?.comment}</td>
+                            <td>{report?.email}</td>
+                            <td><button className="btn btn-error">Delete</button></td>
+                        </tr>)
+                    }
+                </tbody>
             </table>
         </div>
     );
