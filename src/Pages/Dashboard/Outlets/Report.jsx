@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPrivate from "../../../Hooks/useAxiosPrivate";
+import { Slide, toast } from "react-toastify";
 
 
 const Report = () => {
@@ -14,7 +15,14 @@ const Report = () => {
     })
 
     const handleClick = async (id) => {
-        console.log(id);
+        const res = await axiosPrivate.delete(`/reports/${id}`);
+        if (res.data.deletedCount > 0) {
+            toast.success("Comment deleted successfully,", {
+                position: "bottom-right",
+                transition: Slide
+            });
+            window.location.reload();
+        }
     }
 
 
