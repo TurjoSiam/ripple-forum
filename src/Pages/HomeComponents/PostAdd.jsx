@@ -16,6 +16,7 @@ const PostAdd = () => {
                         <option value="Only me">Only me</option>
                     </datalist>
                 </div>
+                <button className='btn' type='submit'>Post</button>
             </div>
         </div>
     );

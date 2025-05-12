@@ -1,6 +1,7 @@
 // import Accordion from "../HomeComponents/Accordion";
 // import Contact from "../HomeComponents/Contact";
 // import Countdown from "../HomeComponents/Countdown";
+import PostAdd from "../HomeComponents/PostAdd";
 import Posts from "../HomeComponents/Posts";
 // import ShowAnnouncement from "../HomeComponents/ShowAnnouncement";
 // import Steps from "../HomeComponents/Steps";
@@ -17,6 +18,7 @@ const Home = () => {
                 </div>
                 {/* middle side options */}
                 <div className="col-span-4">
+                    <PostAdd></PostAdd>
                     <Posts></Posts>
                     {/* <ShowAnnouncement></ShowAnnouncement>
                     <Timeline></Timeline>
