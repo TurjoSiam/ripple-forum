@@ -14,12 +14,12 @@ const Posts = () => {
     const [clickedTag, setClickedTag] = useState('');
 
     const inputRef = useRef();
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const result = inputRef.current.value;
-        setSearch(result);
-        setClickedTag('');
-    }
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     const result = inputRef.current.value;
+    //     setSearch(result);
+    //     setClickedTag('');
+    // }
 
     const axiosPublic = useAxiosPublic();
     const { data, isFetching } = useQuery({
@@ -31,13 +31,13 @@ const Posts = () => {
     })
 
 
-    const { data: tags } = useQuery({
-        queryKey: ['tags'],
-        queryFn: async () => {
-            const res = await axiosPublic.get("/tags");
-            return res.data;
-        }
-    })
+    // const { data: tags } = useQuery({
+    //     queryKey: ['tags'],
+    //     queryFn: async () => {
+    //         const res = await axiosPublic.get("/tags");
+    //         return res.data;
+    //     }
+    // })
 
     if (isFetching) {
         return <div className="w-full flex items-center justify-center h-screen">
@@ -58,20 +58,20 @@ const Posts = () => {
             </div>
 
             {/* search and filter functionality */}
-            <div className="md:w-1/4 w-full mx-auto flex flex-col gap-5 items-center">
-                {/* filter */}
-                <div className="flex items-center justify-center gap-1 w-11/12 lg:w-6/12 mx-auto my-2">
+            {/* <div className="md:w-1/4 w-full mx-auto flex flex-col gap-5 items-center"> */}
+            {/* filter */}
+            {/* <div className="flex items-center justify-center gap-1 w-11/12 lg:w-6/12 mx-auto my-2">
                     <button onClick={() => setSortBy('popularity')} className="btn text-black dark:text-black bg-cyan-400 hover:bg-cyan-200 hover:text-black hover:dark:text-black ">Sort By Popularity <FaSortNumericDownAlt /></button>
                     <button onClick={() => setSortBy('')} className="btn btn-outline text-cyan-700 hover:bg-cyan-100 hover:text-black">Reset <RiResetLeftFill /></button>
-                </div>
+                </div> */}
 
-                {/* search bar */}
-                <form onSubmit={handleSubmit} className="flex items-center gap-1 mt-5">
+            {/* search bar */}
+            {/* <form onSubmit={handleSubmit} className="flex items-center gap-1 mt-5">
                     <input ref={inputRef} name="tag" defaultValue={clickedTag} type="text" placeholder="Search by Tag" className="input input-bordered w-full" />
                     <input className="btn-main" type="submit" value="Search" />
-                </form>
-                {/* tags */}
-                <div className="flex flex-wrap justify-center gap-2 md:gap-4">
+                </form> */}
+            {/* tags */}
+            {/* <div className="flex flex-wrap justify-center gap-2 md:gap-4">
                     {tags?.map((tag, index) => (
                         <div
                             key={index}
@@ -81,9 +81,9 @@ const Posts = () => {
                             <span className="text-xs md:text-sm font-medium">{tag?.value}</span>
                         </div>
                     ))}
-                </div>
+                </div> */}
 
-            </div>
+            {/* </div> */}
 
 
         </div>
