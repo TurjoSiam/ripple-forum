@@ -9,14 +9,14 @@ import Timeline from "../HomeComponents/Timeline";
 
 const Home = () => {
     return (
-        <div className="bg-blue-100 dark:bg-gray-600">
-            <div className="grid grid-cols-2 gap-5">
+        <div className="bg-blue-100 dark:bg-gray-600 mx-auto">
+            <div className="grid grid-cols-6 gap-5">
                 {/* left side options */}
-                <div>
+                <div className="col-span-1">
                     <h2>this is left side options</h2>
                 </div>
-                {/* right side options */}
-                <div>
+                {/* middle side options */}
+                <div className="col-span-4">
                     <Posts></Posts>
                     <ShowAnnouncement></ShowAnnouncement>
                     <Timeline></Timeline>
@@ -24,6 +24,10 @@ const Home = () => {
                     <Accordion></Accordion>
                     <Countdown></Countdown>
                     <Contact></Contact>
+                </div>
+                {/* right side options */}
+                <div className="col-span-1">
+                    <h2>this is right side options</h2>
                 </div>
             </div>
         </div>
