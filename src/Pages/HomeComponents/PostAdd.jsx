@@ -9,10 +9,10 @@ const PostAdd = () => {
     return (
         <div className='mt-10 max-w-2xl mx-auto'>
             <div className='flex items-start gap-3'>
-                <img className='w-5 h-5 rounded-full' src={user?.displayPhoto} alt="Profile picture" />
+                <img className='w-12 h-12 object-cover rounded-full' src={user?.photoURL} alt="Profile picture" />
                 <textarea placeholder='Share your thoughts !' className='p-5 w-full shadow-md rounded-lg min-h-20' name="post" id="post"></textarea>
             </div>
-            <div className='flex items-center mt-5 justify-between'>
+            <div className='flex items-center mt-2 justify-between'>
                 <div>
                     <input name='privacy' type="text" />
                     <datalist id='privacy'>
