@@ -1,11 +1,16 @@
-import React from 'react';
+import { useContext } from "react";
+import AuthContext from "../../Context/AuthContext";
+
 
 const PostAdd = () => {
+
+    const { user } = useContext(AuthContext);
+
     return (
         <div className='mt-10 max-w-2xl mx-auto'>
             <div className='flex items-start gap-3'>
-                <img className='w-5 h-5 rounded-full' src="" alt="Profile picture" />
-                <textarea className='w-full rounded-lg min-h-10' name="post" id="post"></textarea>
+                <img className='w-5 h-5 rounded-full' src={user?.displayPhoto} alt="Profile picture" />
+                <textarea placeholder='Share your thoughts !' className='p-5 w-full shadow-md rounded-lg min-h-20' name="post" id="post"></textarea>
             </div>
             <div className='flex items-center mt-5 justify-between'>
                 <div>
