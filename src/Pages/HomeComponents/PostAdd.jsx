@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import AuthContext from "../../Context/AuthContext";
+import { IoIosGlobe } from "react-icons/io";
 
 
 const PostAdd = () => {
@@ -16,7 +17,7 @@ const PostAdd = () => {
                 <div>
                     <label htmlFor="privacy">Privacy</label>
                     <select name="privacy" id="privacy">
-                        <option value="Public">Public</option>
+                        <option value="Public"><IoIosGlobe /></option>
                         <option value="Friends">Friends</option>
                         <option value="Only me">Only me</option>
                     </select>
