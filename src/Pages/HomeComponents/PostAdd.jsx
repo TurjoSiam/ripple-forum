@@ -14,12 +14,12 @@ const PostAdd = () => {
             </div>
             <div className='flex items-center mt-2 justify-between'>
                 <div>
-                    <input name='privacy' type="text" />
-                    <datalist id='privacy'>
+                    <label htmlFor="privacy">Privacy</label>
+                    <select name="privacy" id="privacy">
                         <option value="Public">Public</option>
                         <option value="Friends">Friends</option>
                         <option value="Only me">Only me</option>
-                    </datalist>
+                    </select>
                 </div>
                 <button className='btn' type='submit'>Post</button>
             </div>
