@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import AuthContext from "../../Context/AuthContext";
-import { IoIosGlobe } from "react-icons/io";
 
 
 const PostAdd = () => {
@@ -14,10 +13,10 @@ const PostAdd = () => {
                 <textarea placeholder='Share your thoughts !' className='p-5 w-full shadow-md rounded-lg min-h-20' name="post" id="post"></textarea>
             </div>
             <div className='flex items-center mt-2 justify-between'>
-                <div>
-                    <label htmlFor="privacy">Privacy</label>
-                    <select name="privacy" id="privacy">
-                        <option value="Public"><IoIosGlobe /></option>
+                <div className="ml-16 space-x-1">
+                    <label className="text-sm font-semibold" htmlFor="privacy">Privacy:</label>
+                    <select className="text-sm rounded-md" name="privacy" id="privacy">
+                        <option value="Public">Public</option>
                         <option value="Friends">Friends</option>
                         <option value="Only me">Only me</option>
                     </select>
