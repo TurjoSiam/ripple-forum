@@ -6,6 +6,10 @@ const PostAdd = () => {
 
     const { user } = useContext(AuthContext);
 
+    const handleClick = () => {
+        console.log("post added");
+    }
+
     return (
         <div className='mt-10 max-w-2xl mx-auto'>
             <div className='flex items-start gap-3'>
@@ -21,7 +25,7 @@ const PostAdd = () => {
                         <option value="Only me">Only me</option>
                     </select>
                 </div>
-                <button className='btn' type='submit'>Post</button>
+                <button onClick={handleClick} className='btn' type='submit'>Post</button>
             </div>
         </div>
     );
