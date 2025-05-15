@@ -6,6 +6,12 @@ const PostAdd = () => {
 
     const { user } = useContext(AuthContext);
 
+    const time = new Date().toJSON().slice(11, 16);
+
+    const { register, handleSubmit, reset } = useForm();
+
+    const { user } = useContext(AuthContext);
+
     const handleClick = () => {
         console.log("post added");
     }
