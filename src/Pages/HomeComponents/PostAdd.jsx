@@ -10,13 +10,13 @@ const PostAdd = () => {
 
     const { user } = useContext(AuthContext);
 
-    const handleClick = () => {
-        console.log("post added");
+    const onSubmit = (data) => {
+        console.log(data);
     }
 
     return (
         <div className='mt-10 max-w-2xl mx-auto'>
-            <form>
+            <form onSubmit={() => handleSubmit(onSubmit)}>
                 <div className='flex items-start gap-3'>
                     <img className='w-12 h-12 object-cover rounded-full' src={user?.photoURL} alt="Profile picture" />
                     <textarea {...register('post')} placeholder='Share your thoughts !' className='p-5 w-full shadow-md rounded-lg min-h-20' name="post" id="post"></textarea>
@@ -30,7 +30,7 @@ const PostAdd = () => {
                             <option value="Only me">Only me</option>
                         </select>
                     </div>
-                    <button onClick={handleClick} className='btn' type='submit'>Post</button>
+                    <button className='btn' type='submit'>Post</button>
                 </div>
             </form>
         </div>
