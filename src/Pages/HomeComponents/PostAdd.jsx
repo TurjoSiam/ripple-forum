@@ -10,8 +10,12 @@ const PostAdd = () => {
 
     const { user } = useContext(AuthContext);
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = async (data) => {
+        const res = await axiosPrivate.post('/posts', data)
+        if (res.data.insertedId) {
+            Swal.fire("Post Added Successfully!");
+        }
+        reset();
     }
 
     return (
